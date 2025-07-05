@@ -842,6 +842,10 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Soldier_Extended_Buff_Banner
+					CharacterAttributes
+					{
+						"deploy time increased"		1.34
+					}
 				}
 			}
 		}
@@ -1342,6 +1346,10 @@ WaveSchedule
 			{
 				Template T_TFBot_Soldier_Extended_Buff_Banner
 				Skill Hard
+				CharacterAttributes
+				{
+					"deploy time increased"		1.34
+				}
 			}
 		}
 		Wavespawn
