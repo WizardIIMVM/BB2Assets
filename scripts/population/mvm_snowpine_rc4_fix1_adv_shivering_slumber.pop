@@ -1767,9 +1767,24 @@ ShiveringSlumber
 		{
 			HideIcon 1
 			Support Limited
-			TFBot
+			Squad
 			{
-				ClassIcon demo_burst_homing
+				TFBot
+				{
+					ClassIcon demo_burst_homing
+				}
+				TFBot
+				{
+					ClassIcon demo_sticky_burst
+				}
+				TFBot
+				{
+					ClassIcon demo_atomic_mort
+				}
+				TFBot
+				{
+					ClassIcon demo_caber_nys
+				}
 			}
 		}
 		WaveSpawn
