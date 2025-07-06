@@ -509,7 +509,7 @@ Custom_MvM_Hell
 		{
 			//TFBot
 			Class Medic
-			Name "Quick-Ãœber Medic"
+			Name "Quick-Uber Medic"
 			ClassIcon medic_uber
 			Attributes SpawnWithFullCharge
 
