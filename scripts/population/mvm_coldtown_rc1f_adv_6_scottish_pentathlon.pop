@@ -1284,6 +1284,7 @@ WaveSchedule
 			Line "{green}Any Shield - Blast to Bullet (Price is Free)"
 			Line "{green}Any Shield - +100% Credit Collect Range (100$, Max 4)"
 			Line "{green}Any Shield - +40 Health on Money (100$, Max 4)"
+			Line "{green}Milk Sticky - Slow Enemy 10 Seconds on Hit (300$, Max 1)"
 		}
 		
 		SpawnTemplate
