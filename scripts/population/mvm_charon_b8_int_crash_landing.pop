@@ -87,7 +87,7 @@ population
 		T_TFGateBot_Heavy_Easy_Xenomorph
 		{
 			Class Heavy
-			Name	"Heavy Xenomorh"
+			Name	"Heavy Xenomorph"
 			MaxVisionRange	1200
 			//Item	"The Xeno Suit"
 			Item	"the alien cranium"
