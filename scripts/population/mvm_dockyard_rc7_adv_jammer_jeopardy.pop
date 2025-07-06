@@ -913,7 +913,7 @@ WaveSchedule
 			TotalCount	2
 			MaxActive	1
 			SpawnCount	1
-			WaitBeforeStarting	15
+			WaitBeforeStarting	20
 			WaitBetweenSpawnsAfterDeath	15
 			Where	spawnbot_main_0
 			Where	spawnbot_main_1
@@ -1077,7 +1077,7 @@ WaveSchedule
 			WaitBeforeStarting	20
 			Tank
 			{
-				Health 27000
+				Health 24000
 				Speed 75
                 Name "teletank"
                 ClassIcon tank_tele
@@ -1769,7 +1769,6 @@ WaveSchedule
 			TFBot
 			{
 				Template T_TFBot_Giant_Pyro_Dragon
-				Attributes AlwaysCrit
 				Tag	"bot_giant"
 			}
 		}
@@ -1947,13 +1946,13 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
-			Name	wave4b
-			WaitForAllDead wave4a
+			Name	wave4b2
+			WaitForAllSpawned wave4b
 			TotalCurrency	100
 			TotalCount	2
 			MaxActive	2
 			SpawnCount	2
-			WaitBeforeStarting	50
+			WaitBeforeStarting	15
 			Where	spawnbot_main_0
 			Where	spawnbot_main_1
 			TFBot
@@ -2069,26 +2068,12 @@ WaveSchedule
 		WaveSpawn
         {
             Name	wave5a
-			TotalCurrency	100
-			TotalCount	1
-			MaxActive	1
-			SpawnCount  1
-			WaitBeforeStarting	36
-			Where	spawnbot_flank_0
-			Where	spawnbot_flank_1
-			TFBot
-			{
-				Template T_TFGateBot_Giant_Conch_Soldier
-			}
-		}
-		WaveSpawn
-        {
-            Name	wave5a
-			TotalCurrency	50
+			TotalCurrency	150
 			TotalCount	2
 			MaxActive	2
-			SpawnCount  2
-			WaitBeforeStarting	53
+			SpawnCount  1
+			WaitBeforeStarting	36
+			WaitBetweenSpawns       17
 			Where	spawnbot_flank_0
 			Where	spawnbot_flank_1
 			TFBot
@@ -2224,17 +2209,9 @@ WaveSchedule
 			Where	spawnbot_main_1
 			TFBot
 			{
-				Name "Giant Concheror Demoman"
+				Name "Giant Demoman"
 				Template T_TFBot_Giant_Demo_RapidFire
-				ClassIcon demo_conch_lite
-				Item "The Concheror"
 				Tag	"bot_giant"
-				Attributes SpawnWithFullCharge
-				CharacterAttributes
-				{
-					"increase buff duration"	9.0
-					"deploy time increased"	0.5
-				}
 			}
 		}
 		WaveSpawn
