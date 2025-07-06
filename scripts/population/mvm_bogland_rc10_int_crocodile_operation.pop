@@ -1285,7 +1285,7 @@ WaveSchedule
             Name "a3"
             WaitForAllSpawned "a2"
             Where spawnbot_invasion
-            TotalCount 38
+            TotalCount 36
             MaxActive 12
             SpawnCount 3
             WaitBeforeStarting 15
@@ -1818,10 +1818,10 @@ WaveSchedule
             WaitForAllSpawned "a2"
             Where spawnbot_invasion
             TotalCount 20
-            MaxActive 10
+            MaxActive 12
             SpawnCount 5
             WaitBeforeStarting 14
-            WaitBetweenSpawns 8
+            WaitBetweenSpawns 5
             TotalCurrency 50
         
             TFBot
@@ -1901,7 +1901,9 @@ WaveSchedule
         
             TFBot
             {
-                Template T_TFBot_Scout_Sandman_FastCharge
+                Template T_TFBot_Scout_Bonk
+                Skill Expert
+                Attributes AlwaysCrit
             }
         }
 
@@ -2021,9 +2023,8 @@ WaveSchedule
             {
                 TFBot
                 {
-                    Template T_TFBot_Giant_Demoman
+                    Template T_TFBot_Giant_Demoman_Burst_Fix
                     Attributes AlwaysCrit
-                    ClassIcon demo_spammer
                 }
 
                 TFBot
