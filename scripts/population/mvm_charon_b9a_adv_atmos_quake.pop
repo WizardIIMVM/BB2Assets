@@ -2,7 +2,7 @@
 #base robot_standard.pop
 #base robot_gatebot.pop
 #base robot_station.pop
-//#base overclock_cactus_general.pop // wonder if this is the right one
+#base overclock_cactus_general.pop // wonder if this is the right one
 
 WaveSchedule
 {
@@ -1269,6 +1269,10 @@ WaveSchedule
 			TFBot
 			{
 				Template T_TFGateBot_Soldier_Extended_Battalion_Hard
+				CharacterAttributes
+				{
+					"deploy time increased"		1.34
+				}
 			}
 		}
 		Wavespawn
