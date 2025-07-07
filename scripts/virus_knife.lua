@@ -76,6 +76,8 @@ local PACK_ITEMS = {
 	"item_currencypack_custom",
 }
 
+local numActiveBots = 0
+
 function OnWaveInit()
 	inWave = false
 
@@ -283,10 +285,13 @@ function virusKnifeKill(damage, activator, caller)
 	
 	local botSpawn = findFreeBot()
 
-	if not botSpawn then
+	if not botSpawn or numActiveBots >= 10 then
 		owner:Print(PRINT_TARGET_CENTER, "GLOBAL BOT LIMIT REACHED")
 		return
 	end
+	
+	numActiveBots = numActiveBots + 1
+	print(numActiveBots)
 	
 	local gigaSpyValue = 1
 	
@@ -348,6 +353,8 @@ function virusKnifeKill(damage, activator, caller)
 			--name check is performed in case the spy was killed and respawned between the half second of check timeLeft
 			if botSpawn:IsAlive() == false or botSpawn.m_szNetname ~= "Spy (" .. owner.m_szNetname .. ")" then
 				timer.Stop(logicLoop)
+				numActiveBots = numActiveBots - 1
+				print(numActiveBots)				
 				--print("we're done, we either died or aren't a spy")
 				return
 			end
@@ -355,7 +362,9 @@ function virusKnifeKill(damage, activator, caller)
 			if timeLeft <= 0 or inWave == false or owner:IsValid() == false then
 				timer.Stop(logicLoop)
 				--print("we're done, we either ran out of time or the wave ended")
-				botSpawn:Suicide()	
+				botSpawn:Suicide()
+				numActiveBots = numActiveBots - 1
+				print(numActiveBots)
 				return
 			end
 		end, 29) --one extra because of a pair of freak incidents where the spies lived forever
