@@ -748,14 +748,7 @@ ShiveringSlumber
 					{
 						Item "player"
 						Name "move speed bonus"
-						Value 0.01
-						Delay 0.1
-					}
-					AddAttribute
-					{
-						Item "player"
-						Name "no_jump"
-						Value 1
+						Value 0.001
 						Delay 0
 					}
 					FireInput
