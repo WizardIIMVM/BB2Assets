@@ -87,9 +87,11 @@ population
 		T_TFGateBot_Heavy_Easy_Xenomorph
 		{
 			Class Heavy
-			Name	"Heavy Xenomorh"
+			Name	"Heavy Xenomorph"
 			MaxVisionRange	1200
 			//Item	"The Xeno Suit"
+			Item	"the alien cranium"
+			Item	"the biomech backpack"
 			EventChangeAttributes
 			{
 				Default
@@ -100,8 +102,6 @@ population
 					Tag bot_gatebot 				// having these will cause bots to run towards gates
 
 					Item "MvM GateBot Light Heavy"
-					Item	"the alien cranium"
-					Item	"the biomech backpack"
 					Skill Easy
 				}
 				RevertGateBotsBehavior
@@ -112,8 +112,6 @@ population
 						ItemName "MvM GateBot Light Heavy"
 						"item style override" 1
 					}
-					Item	"the alien cranium"
-					Item	"the biomech backpack"
 					Skill Easy
 				}
 			}
@@ -123,6 +121,8 @@ population
 			Name	"Cozy Bat Scout"
 			Class Scout
 			ClassIcon scout_bat_nys
+			Item	"bedouin bandana"
+			Item	"weight room warmer"
 
 			EventChangeAttributes
 			{
@@ -132,9 +132,8 @@ population
 					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
 					BehaviorModifiers push			// having these will cause bots to run towards gates
 					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
-					//Item	"bedouin bandana"
+					
 					Item "MvM GateBot Light Scout"
-					Item	"weight room warmer"
 					Skill Hard
 					WeaponRestrictions MeleeOnly
 					ItemAttributes
@@ -146,8 +145,6 @@ population
 				RevertGateBotsBehavior
 				{
 					Item "MvM GateBot Light Scout"
-					//Item	"bedouin bandana"
-					Item	"weight room warmer"
 					ItemAttributes               // turn off light hat
 					{
 						ItemName "MvM GateBot Light Scout"
@@ -167,6 +164,8 @@ population
 		{
 			Name	"Alien Robot Soldier"
 			Class Soldier
+			Item	"Shoestring Budget"
+			Item	"Steel Pipes"
 			EventChangeAttributes
 			{
 				Default
@@ -175,9 +174,8 @@ population
 					Attributes IgnoreFlag			// having these will cause bots to run towards gates
 					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
 					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
 					Item "MvM GateBot Light Soldier"
-					Item	"Shoestring Budget"
-					Item	"Steel Pipes"
 					Skill Easy
 				}
 				RevertGateBotsBehavior
@@ -188,8 +186,6 @@ population
 						ItemName "MvM GateBot Light Soldier"
 						"item style override" 1
 					}
-					Item	"Shoestring Budget"
-					Item	"Steel Pipes"
 					Skill Easy
 				}
 			}
@@ -201,6 +197,7 @@ population
 			ClassIcon soldier_mangler_v2
 			Health 3800
 			//Item	"parasite hat"
+			Item	"The Cow Mangler 5000"
 			EventChangeAttributes
 			{
 				Default
@@ -210,7 +207,6 @@ population
 					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
 					Tag bot_gatebot 				// having these will cause bots to run towards gates
 
-					Item	"The Cow Mangler 5000"
 					Item "MvM GateBot Light Soldier"
 					Tag bot_giant
 					Skill Expert
@@ -227,7 +223,6 @@ population
 				}
 				RevertGateBotsBehavior
 				{
-					Item	"The Cow Mangler 5000"
 					Item "MvM GateBot Light Soldier"
 					ItemAttributes               // turn off light hat
 					{
@@ -254,6 +249,7 @@ population
 			Class Scout
 			Name	"War Scout"
 			//Item	"the bolt boy"
+			Item	"flak jack"
 			EventChangeAttributes
 			{
 				Default
@@ -264,7 +260,6 @@ population
 					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
 
 					Item "MvM GateBot Light Scout"
-					Item	"flak jack"
 					Skill Normal
 					MaxVisionRange 1000
 					ItemAttributes
@@ -281,7 +276,6 @@ population
 						ItemName "MvM GateBot Light Scout"
 						"item style override" 1
 					}
-					Item	"flak jack"
 					ItemAttributes
 					{
 						ItemName "TF_WEAPON_SCATTERGUN"
@@ -298,6 +292,7 @@ population
 			Name "Conqeror of Space"
 			ClassIcon soldier_conch
 			//Item	"The Conquistador"
+			Item	"The Man in Slacks"
 			EventChangeAttributes
 			{
 				Default
@@ -306,9 +301,9 @@ population
 					Attributes IgnoreFlag			// having these will cause bots to run towards gates
 					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
 					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
 					Item "The Concheror"
 					Item "MvM GateBot Light Soldier"
-					Item	"The Man in Slacks"
 					Skill Normal
 					Attributes SpawnWithFullCharge
 					CharacterAttributes
@@ -326,7 +321,6 @@ population
 						ItemName "MvM GateBot Light Soldier"
 						"item style override" 1
 					}
-					Item	"The Man in Slacks"
 					Skill Normal
 					Attributes SpawnWithFullCharge
 					CharacterAttributes
@@ -341,6 +335,7 @@ population
 		{
 			Class Heavy
 			Name	"Infected Rocket Heavy"
+			Item	"Sucker Slug"
 			ClassIcon	heavy_rocket
 			EventChangeAttributes
 			{
@@ -350,8 +345,8 @@ population
 					Attributes IgnoreFlag			// having these will cause bots to run towards gates
 					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
 					Tag bot_gatebot 				// having these will cause bots to run towards gates
+
 					Item "MvM GateBot Light Heavy"
-					Item	"Sucker Slug"
 					Skill Easy
 					ItemAttributes
 					{
@@ -376,7 +371,6 @@ population
 						"fire rate penalty"	3
 						"damage penalty"	0.625
 					}
-					Item	"Sucker Slug"
 					Skill Easy
 					//Attributes AlwaysCrit
 				}
@@ -388,6 +382,8 @@ population
 			Name "Giant Cozy Shotgun Heavy"
 			Health 5000
 			ClassIcon heavy_shotgun_giant
+			Item	"the accursed apparition"
+			Item	"weight room warmer"
 			EventChangeAttributes
 			{
 				Default
@@ -396,9 +392,8 @@ population
 					Tag bot_gatebot				// having these will cause bots to run towards gates
 					BehaviorModifiers push		// having these will cause bots to run towards gates
 					Attributes IgnoreFlag		// having these will cause bots to run towards gates
+
 					Item "MvM GateBot Light Heavy"
-					Item	"the accursed apparition"
-					Item	"weight room warmer"
 					Skill Expert
 					WeaponRestrictions SecondaryOnly
 					MaxVisionRange 1400
@@ -429,8 +424,6 @@ population
 						ItemName "MvM GateBot Light Heavy"
 						"item style override" 1
 					}
-					Item	"the accursed apparition"
-					Item	"weight room warmer"
 					Skill Expert
 					WeaponRestrictions SecondaryOnly
 					MaxVisionRange 1400
@@ -460,6 +453,9 @@ population
 			Name	"Alien Bison Soldier"
 			Class Soldier
 			ClassIcon	soldier_bison_b
+			Item	"The Righteous Bison"
+			Item	"Shoestring Budget"
+			Item	"Steel Pipes"
 			EventChangeAttributes
 			{
 				Default
@@ -468,12 +464,7 @@ population
 					Attributes IgnoreFlag			// having these will cause bots to run towards gates
 					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
 					Tag bot_gatebot 				// having these will cause bots to run towards gates
-					Item	"The Righteous Bison"
-					Item	"Shoestring Budget"
-					Item	"Steel Pipes"
-					Item	"The Righteous Bison"
-					Item	"Shoestring Budget"
-					Item	"Steel Pipes"
+
 					Item "MvM GateBot Light Soldier"
 					Skill Normal
 					WeaponRestrictions	SecondaryOnly
@@ -486,9 +477,6 @@ population
 						ItemName "MvM GateBot Light Soldier"
 						"item style override" 1
 					}
-					Item	"The Righteous Bison"
-					Item	"Shoestring Budget"
-					Item	"Steel Pipes"
 					Skill Normal
 					WeaponRestrictions	SecondaryOnly
 				}
@@ -501,6 +489,8 @@ population
 			ClassIcon soldier_spammer
 			Health 3800
 			//Item	"The Xeno Suit"
+			Item	"Shoestring Budget"
+			Item	"Steel Pipes"
 			//Name	"Giant RF Xenomorph"
 			EventChangeAttributes
 			{
@@ -510,9 +500,8 @@ population
 					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
 					BehaviorModifiers push			// having these will cause bots to run towards gates
 					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
 					Item "MvM GateBot Light Soldier"
-					Item	"Shoestring Budget"
-					Item	"Steel Pipes"
 					Skill Expert
 					WeaponRestrictions PrimaryOnly
 					Attributes MiniBoss
@@ -541,8 +530,6 @@ population
 						ItemName "MvM GateBot Light Soldier"
 						"item style override" 1
 					}
-					Item	"Shoestring Budget"
-					Item	"Steel Pipes"
 					Skill Expert
 					WeaponRestrictions PrimaryOnly
 					Attributes MiniBoss
@@ -567,6 +554,7 @@ population
 		}
 		T_TFGateBot_Scout_Cozy_Primary
 		{
+			Item	"weight room warmer"
 			Class Scout
 			Name	"Cozy Scout"
 			EventChangeAttributes
@@ -577,8 +565,8 @@ population
 					Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
 					BehaviorModifiers push			// having these will cause bots to run towards gates
 					Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
 					Item "MvM GateBot Light Scout"
-					Item	"weight room warmer"
 					Skill Normal
 					MaxVisionRange 1000
 					ItemAttributes
@@ -600,7 +588,6 @@ population
 						ItemName "TF_WEAPON_SCATTERGUN"
 						"damage penalty" 0.5
 					}
-					Item	"weight room warmer"
 					Skill Normal
 					MaxVisionRange 1000
 				}
@@ -612,6 +599,10 @@ population
 			Name "Giant Tomislav Xenomorph"
 			Health 5000
 			ClassIcon heavy_accurate_lite
+			Item	"Tomislav"
+			//Item	"The Xeno Suit"
+			Item	"the alien cranium"
+			Item	"the biomech backpack"
 			EventChangeAttributes
 			{
 				Default
@@ -622,9 +613,6 @@ population
 					Tag bot_gatebot 				// having these will cause bots to run towards gates
 
 					Item "MvM GateBot Light Heavy"
-					Item	"Tomislav"
-					Item	"the alien cranium"
-					Item	"the biomech backpack"
 					Skill Expert
 					WeaponRestrictions PrimaryOnly
 					MaxVisionRange 1200
@@ -651,9 +639,6 @@ population
 						ItemName "MvM GateBot Light Heavy"
 						"item style override" 1
 					}
-					Item	"Tomislav"
-					Item	"the alien cranium"
-					Item	"the biomech backpack"
 					Skill Expert
 					WeaponRestrictions PrimaryOnly
 					MaxVisionRange 1200
@@ -661,7 +646,7 @@ population
 					Tag bot_giant
 					ItemAttributes
 					{
-						ItemName "Tomislav"
+						ItemName "Deflector"
 						"damage bonus"	1.25 // -0.25 copied from base mighty heavy
 					}
 					CharacterAttributes
@@ -679,6 +664,8 @@ population
 			Class Soldier
 			ClassIcon soldier_directhit_lite
 			Name "Direct Hit Alien Soldier"
+			Item	"Shoestring Budget"
+			Item	"Steel Pipes"
 			EventChangeAttributes
 			{
 				Default
@@ -688,8 +675,6 @@ population
 					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
 					Tag bot_gatebot 				// having these will cause bots to run towards gates
 
-					Item	"Shoestring Budget"
-					Item	"Steel Pipes"
 					Item "MvM GateBot Light Soldier"
 					Item "The Direct Hit"
 					//Attributes AlwaysCrit
@@ -704,8 +689,7 @@ population
 						"item style override" 1
 					}
 					Item "The Direct Hit"
-					Item	"Shoestring Budget"
-					Item	"Steel Pipes"
+					//Attributes AlwaysCrit
 					Skill Normal
 				}
 			}
@@ -726,7 +710,6 @@ population
 					Attributes IgnoreFlag		// having these will cause bots to run towards gates
 
 					Item "MvM GateBot Light Heavy"
-					Item	"captain space mann"
 					Skill Hard
 					WeaponRestrictions SecondaryOnly
 
@@ -747,7 +730,7 @@ population
 						ItemName "MvM GateBot Light Heavy"
 						"item style override" 1
 					}
-					Item	"captain space mann"
+
 					Skill Hard
 					WeaponRestrictions SecondaryOnly
 					ItemAttributes
@@ -2203,9 +2186,9 @@ population
 				{
 					Tag	bot_giant
 					//ClassIcon	pan_golden_lite
-					ClassIcon	heavy_fist_nys
+					ClassIcon	pan_lite
 					Health	10000
-					Name	"Relaxing Inhabitant"
+					Name	"The Cook Of Space"
 					Scale	1
 					Class	HeavyWeapons
 					Skill	Expert
@@ -2214,12 +2197,12 @@ population
 					Attributes	"MiniBoss"
 					ItemAttributes
 					{
-						ItemName	"TF_WEAPON_FISTS"
+						ItemName	"frying pan"
 						"damage bonus"	2.5
 						"fire rate bonus"	0.75
 						"minicritboost on kill"	1
-						//"item style override"	1
-						//"is australium item"	1
+						"item style override"	1
+						"is australium item"	1
 					}
 					CharacterAttributes
 					{
@@ -2228,14 +2211,14 @@ population
 						"airblast vulnerability multiplier"	0.3
 						"override footstep sound set"	2
 					}
-					//Item	"frying pan"
+					Item	"frying pan"
 					Item	"siberian sweater"
 					Item	"captain space mann"
 				}
 				TFBot
 				{
 					Tag	bot_giant
-					Name	"The Inhabitants Oven"
+					Name	"The Cooks Roaster"
 					MaxVisionRange	1200
 					Attributes	"UseBossHealthBar"
 					Template	T_TFBot_Giant_Heavyweapons_LaserRocket
