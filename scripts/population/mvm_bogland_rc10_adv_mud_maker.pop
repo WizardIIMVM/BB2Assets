@@ -1233,7 +1233,7 @@ population
 		{
     		Target "gamerules"
     		Action "RunScriptCode"
-    		Param "ClientPrint(null,3,`\x07F1C232Red Headquarters \x078FCE00: Watch out and be prepared the \x07FF3F3FLeader\x078FCE00 of this offensive is coming soon.\x07FF3F3F His Right Hand\x078FCE00 is with him.`)"
+    		Param "ClientPrint(null,3,`\x07F1C232Red Headquarters \x078FCE00: Watch out and be prepared. The \x07FF3F3FLeader\x078FCE00 of this offensive is coming soon.\x07FF3F3F His Right Hand\x078FCE00 is with him.`)"
 		}
 		DoneOutput
 		{
@@ -1606,7 +1606,7 @@ population
 				Template	T_TFBot_Pyro
 				ClassIcon	pyro_reflect_daan
 				Item	"Traffic Cone"
-				Attributes	"AlwaysFireWeapon"
+				//Attributes	"AlwaysFireWeapon"
 				Attributes	"AlwaysCrit"
 			}
 		}
@@ -1726,7 +1726,10 @@ population
 		{
     		Target "gamerules"
     		Action "RunScriptCode"
-    		Param "ClientPrint(null,3,`\x07F1C232Red Headquarters \x078FCE00: \x07FF3F3FALERT! \x07FF3F3 Field Marshal Mechanus\x078FCE00 and his \x07FF3F3FRight Hand Deadlock\x078FCE00 are here. \x078FCE00Deadlock is known for surprising his enemies. \x07FF3F3 SO WATCH OUT!`)"
+    		Param "
+			ClientPrint(null,3,`\x07F1C232Red Headquarters \x078FCE00: \x07FF3F3FALERT! \x07FF3F3 Field Marshal Mechanus\x078FCE00 and his \x07FF3F3FRight Hand Deadlock\x078FCE00 are here. \x078FCE00Deadlock is known for suprising his enemys. \x07FF3F3 SO WATCH OUT!`)
+			IncludeScript (`buddhamode.nut`,getroottable())
+			"
 		}
 		DoneOutput
 		{
@@ -1757,7 +1760,7 @@ population
                     Cooldown 3 //Time between each weapon switch (Default: 10)
                     Repeats 1 //How many times should bot switch weapons in total (Default: 0 - Infinite)
 				}
-				WeaponSwitch    //Periodically switches weapon
+				WeaponSwitch [$SIGSEGV]  //Periodically switches weapon
                 {
                 	Delay 1 //Time before the first weapon switch starts (Default: 10)
                 	Cooldown 3 //Time between each weapon switch (Default: 10)
@@ -1772,7 +1775,7 @@ population
 					IfHealthBelow 25000 //When set, the task activates only when the bot health is below specified value
 					//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 				}
-				Taunt    //Taunt periodically
+				Taunt [$SIGSEGV]  //Taunt periodically
 				{
     				Delay 1 //Time before the first taunt starts (Default: 10)
     				Repeats 1 //How many times the bot should taunt in total (Default: 0 - Infinite)
@@ -1780,7 +1783,7 @@ population
     				Name "Taunt: The Fubar Fanfare" //If set, uses this item taunt instead of default
     				IfHealthAbove 44999 //When set, the task activates only when the bot health is below specified value
 				}
-				Taunt    //Taunt periodically
+				Taunt [$SIGSEGV]  //Taunt periodically
 				{
     				Delay 7 //Time before the first taunt starts (Default: 10)
     				Repeats 1 //How many times the bot should taunt in total (Default: 0 - Infinite)
@@ -1788,7 +1791,7 @@ population
     				Name "Laugh Taunt" //If set, uses this item taunt instead of default
     				IfHealthAbove 44999 //When set, the task activates only when the bot health is below specified value
 				}
-				Taunt    //Taunt periodically
+				Taunt [$SIGSEGV]  //Taunt periodically
 				{
     				Delay 0 //Time before the first taunt starts (Default: 10)
     				Repeats 1 //How many times the bot should taunt in total (Default: 0 - Infinite)
@@ -1796,29 +1799,21 @@ population
     				Name "Taunt: Unleashed Rage" //If set, uses this item taunt instead of default
     				IfHealthBelow 25000 //When set, the task activates only when the bot health is below specified value
 				}
-				//AddCond   //Adds conditions to bots
-				//{
+				AddCond [$SIGSEGV] //Adds conditions to bots
+				{
     				//Name "TF_COND_REPROGRAMMED" // Condition to apply. List of available conditions https://wiki.teamfortress.com/wiki/Cheats#addcond
-    				//Index 52 //Condition index can be used instead
-    				//Delay 0 // Delay before the condition activates (Default: 0)
-    				//Duration 1.5 // Duration of the condition effect (Default: -1 - infinite duration)
-    				//IfHealthBelow 25000 //When set, the task activates only when the bot health is below specified value
-				//}
-				Taunt    //Taunt periodically
+    				Index 52 //Condition index can be used instead
+    				Delay 0.1 // Delay before the condition activates (Default: 0)
+    				Duration 2 // Duration of the condition effect (Default: -1 - infinite duration)
+    				IfHealthBelow 25000 //When set, the task activates only when the bot health is below specified value
+				}
+				Taunt [$SIGSEGV]  //Taunt periodically
 				{
     				Delay 0 //Time before the first taunt starts (Default: 10)
     				Repeats 1 //How many times the bot should taunt in total (Default: 0 - Infinite)
     				Duration 0.1 //Duration of a looping taunt (Default: 0.1)
     				Name "Taunt: Mourning Mercs" //If set, uses this item taunt instead of default
-    				IfHealthBelow 1000 //When set, the task activates only when the bot health is below specified value
-				}
-				AddCond   //Adds conditions to bots
-				{
-    				Name "TF_COND_REPROGRAMMED" // Condition to apply. List of available conditions https://wiki.teamfortress.com/wiki/Cheats#addcond
-    				Index 52 //Condition index can be used instead
-    				Delay 0 // Delay before the condition activates (Default: 0)
-    				Duration 0.5 // Duration of the condition effect (Default: -1 - infinite duration)
-    				IfHealthBelow 1000 //When set, the task activates only when the bot health is below specified value
+    				IfHealthBelow 2 //When set, the task activates only when the bot health is below specified value
 				}
 				ClassIcon	soldier_bison_rocket_spammer
 				Health	45000
@@ -1832,7 +1827,8 @@ population
 				Item	"the patriot's pouches"
 				Item	"armored authority"
 				AlwaysGlow	1
-				UseHumanAnimations 1   // Use normal class animations instead of a bot / custom model ones
+				AddCond "TF_COND_PREVENT_DEATH" [$SIGSEGV]
+				UseHumanAnimations 1 [$SIGSEGV] // Use normal class animations instead of a bot / custom model ones
 				ItemAttributes
 				{
 					ItemName	"TF_WEAPON_ROCKETLAUNCHER"
@@ -1916,6 +1912,33 @@ population
                  	Repeats 1
 					IfHealthBelow	25000
                 }
+				FireInput //Enable buddha mode.
+				{
+ 					Target !self
+  					Action RunScriptCode
+  					Param "self.EnableBuddha()"
+  					Repeats 1
+  					Delay 0.1
+				}
+				FireInput //Disable buddhamode.
+				{
+  					Target !self
+  					Action RunScriptCode
+  					Param "self.DisableBuddha()"
+ 					Repeats 1
+  					Delay 4.5
+  					IfHealthBelow 2
+				}
+				FireInput [$SIGSEGV] 
+                {
+                    Target !self //Entity name to use
+                    Action "RunScriptCode" //Input to fire
+                    Param "self.TakeDamage(999999, 0, self)" //Parameter to use
+                    Delay 0.1 //Delay before firing the input
+					Cooldown 0.1 //Cooldown between firing the input
+                    Repeats 100000 //How many times should the input be fired
+                    IfHealthBelow 2 //When set, the task activates only when the bot health is below specified value
+                }
 			}
 		}
 		WaveSpawn
@@ -1930,7 +1953,7 @@ population
 			Where	spawnbot_flank_left
 			TFBot
 			{
-				UseCustomModel "models/bots/sniper_boss/bot_sniper_boss.mdl"   //Use custom model
+				UseCustomModel "models/bots/sniper_boss/bot_sniper_boss.mdl" [$SIGSEGV] //Use custom model
 				Action	Sniper
 				ClassIcon	sniper_machina_nys
 				Health	20000
@@ -1945,6 +1968,7 @@ population
 				Attributes	"UseBossHealthBar"
 				Attributes	"MiniBoss"
 				AlwaysGlow	1
+				AddCond "TF_COND_PREVENT_DEATH" [$SIGSEGV]
 				ItemAttributes
 				{
 					ItemName	"The Machina"
@@ -1972,7 +1996,7 @@ population
 					"airblast vulnerability multiplier"	0.3
 					"override footstep sound set"	2
 				}
-				WeaponSwitch    //Periodically switches weapon
+				WeaponSwitch [$SIGSEGV]  //Periodically switches weapon
                 {
                     Delay 1 //Time before the first weapon switch starts (Default: 10)
                     Cooldown 1 //Time between each weapon switch (Default: 10)
@@ -1987,7 +2011,7 @@ population
 					IfHealthBelow 12000 //When set, the task activates only when the bot health is below specified value
 					//IfHealthAbove 0 //When set, the task activates only when the bot health is above specified value
 				}
-				FireInput   
+				FireInput [$SIGSEGV] 
 				{
     				Target "!self"
     				Action "$BotCommand"
@@ -1997,7 +2021,7 @@ population
     				Repeats 1 //How many times should the input be fired
     				IfHealthBelow 12000
 				}
-				FireInput   
+				FireInput [$SIGSEGV] 
 				{
     				Target "!self"
     				Action "RunScriptCode"
@@ -2048,7 +2072,34 @@ population
                  	Repeats 1
 					IfHealthBelow	12000
                 }
-				Taunt    //Taunt periodically
+				FireInput //Enable buddha mode.
+				{
+ 					Target !self
+  					Action RunScriptCode
+  					Param "self.EnableBuddha()"
+  					Repeats 1
+  					Delay 0.1
+				}
+				FireInput //Disable buddhamode.
+				{
+  					Target !self
+  					Action RunScriptCode
+  					Param "self.DisableBuddha()"
+ 					Repeats 1
+  					Delay 4.5
+  					IfHealthBelow 2
+				}
+				FireInput [$SIGSEGV] 
+                {
+                    Target !self //Entity name to use
+                    Action "RunScriptCode" //Input to fire
+                    Param "self.TakeDamage(999999, 0, self)" //Parameter to use
+                    Delay 0.1 //Delay before firing the input
+					Cooldown 0.1 //Cooldown between firing the input
+                    Repeats 100000 //How many times should the input be fired
+                    IfHealthBelow 2 //When set, the task activates only when the bot health is below specified value
+                }
+				Taunt [$SIGSEGV]  //Taunt periodically
 				{
     				Delay 0.1 //Time before the first taunt starts (Default: 10)
     				Repeats 1 //How many times the bot should taunt in total (Default: 0 - Infinite)
@@ -2056,29 +2107,21 @@ population
     				Name "Taunt: Unleashed Rage" //If set, uses this item taunt instead of default
     				IfHealthBelow 12000 //When set, the task activates only when the bot health is below specified value
 				}
-				AddCond   //Adds conditions to bots
+				AddCond [$SIGSEGV] //Adds conditions to bots
 				{
     				Name "TF_COND_REPROGRAMMED" // Condition to apply. List of available conditions https://wiki.teamfortress.com/wiki/Cheats#addcond
     				Index 52 //Condition index can be used instead
     				Delay 0.1 // Delay before the condition activates (Default: 0)
-    				Duration 0.5 // Duration of the condition effect (Default: -1 - infinite duration)
+    				Duration 1 // Duration of the condition effect (Default: -1 - infinite duration)
     				IfHealthBelow 12000 //When set, the task activates only when the bot health is below specified value
 				}
-				Taunt    //Taunt periodically
+				Taunt [$SIGSEGV]  //Taunt periodically
 				{
     				Delay 0.1 //Time before the first taunt starts (Default: 10)
     				Repeats 1 //How many times the bot should taunt in total (Default: 0 - Infinite)
     				Duration 0.1 //Duration of a looping taunt (Default: 0.1)
     				Name "Taunt: Mourning Mercs" //If set, uses this item taunt instead of default
-    				IfHealthBelow 1000 //When set, the task activates only when the bot health is below specified value
-				}
-				AddCond   //Adds conditions to bots
-				{
-    				Name "TF_COND_REPROGRAMMED" // Condition to apply. List of available conditions https://wiki.teamfortress.com/wiki/Cheats#addcond
-    				Index 52 //Condition index can be used instead
-    				Delay 0.1 // Delay before the condition activates (Default: 0)
-    				Duration 0.5 // Duration of the condition effect (Default: -1 - infinite duration)
-    				IfHealthBelow 1000 //When set, the task activates only when the bot health is below specified value
+    				IfHealthBelow 2 //When set, the task activates only when the bot health is below specified value
 				}
 			}
 		}
@@ -2185,7 +2228,7 @@ population
 		}
 		WaveSpawn
 		{	
-			Name	"support"
+			Name	"support1"
 			//WaitForAllDead	support
 			TotalCurrency	100
 			TotalCount	16
@@ -2203,7 +2246,7 @@ population
 		}
 		WaveSpawn
 		{
-			Name	"support"
+			Name	"support2"
 			//WaitForAllDead	support
 			TotalCurrency	100
 			TotalCount	18

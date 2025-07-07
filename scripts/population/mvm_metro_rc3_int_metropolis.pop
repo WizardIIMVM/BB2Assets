@@ -18,6 +18,13 @@ WaveSchedule
 	PrecacheSound "#mentrillum/mvm/music/havoc_prognosis.wav"
 	PrecacheSound "#mentrillum/mvm/music/hard_boiled_heavies.wav"
 
+	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_combat_tank_chassis.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_railgun.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/combat_tank/railgun_case.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_rocket_dumbfire.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_rocket_seeker.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_rocket_pod.mdl" [$SIGSEGV]
+
 	Templates
 	{
 		T_TFBot_Scout_Trooper
