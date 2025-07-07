@@ -76,6 +76,8 @@ local PACK_ITEMS = {
 	"item_currencypack_custom",
 }
 
+local numActiveBots = 0
+
 function OnWaveInit()
 	inWave = false
 
@@ -263,7 +265,6 @@ end
 function virusKnifeKill(damage, activator, caller)
 	
 	
-
 	local owner = activator
 	local handle = owner:GetHandleIndex()
 
@@ -276,17 +277,20 @@ function virusKnifeKill(damage, activator, caller)
 	
 	--print(ownerSapper.m_flEffectBarRegenTime)
 	
-	--sapper has a 15 second cooldown, 30% of 15 is obviously 2
+	--sapper has a 15 second cooldown, 30% of 15 is 2
 	--ownerSapper.m_flEffectBarRegenTime = ownerSapper.m_flEffectBarRegenTime - 2
 
 	--print(ownerSapper.m_flEffectBarRegenTime)
 	
 	local botSpawn = findFreeBot()
 
-	if not botSpawn then
+	if not botSpawn or numActiveBots >= 10 then
 		owner:Print(PRINT_TARGET_CENTER, "GLOBAL BOT LIMIT REACHED")
 		return
 	end
+	
+	numActiveBots = numActiveBots + 1
+	print(numActiveBots)
 	
 	local gigaSpyValue = 1
 	
@@ -336,29 +340,48 @@ function virusKnifeKill(damage, activator, caller)
 	end)
 	
 	--14
-		local timeLeft = 14
 		local logicLoop
+		local spyTerminated = false
 		
 		--checks every half second rather than every tick because this isn't code that needs to be updated constantly
 	
 		logicLoop = timer.Create(0.5, function()
 			--print(timeLeft)
-			timeLeft = timeLeft - 0.5
 			--print(timeLeft)
-			--name check is performed in case the spy was killed and respawned between the half second of check timeLeft
-			if botSpawn:IsAlive() == false or botSpawn.m_szNetname ~= "Spy (" .. owner.m_szNetname .. ")" then
+			--name check is performed in case the spy was killed and respawned between the half second of the check
+			if (botSpawn:IsAlive() == false or botSpawn.m_szNetname ~= "Spy (" .. owner.m_szNetname .. ")") and spyTerminated == false then
 				timer.Stop(logicLoop)
-				--print("we're done, we either died or aren't a spy")
+				numActiveBots = numActiveBots - 1
+				spyTerminated = true
+				print(numActiveBots)				
+				print("we're done, we either died or aren't a spy")
 				return
 			end
 			
-			if timeLeft <= 0 or inWave == false or owner:IsValid() == false then
+			if (inWave == false or owner:IsValid() == false) and spyTerminated == false then
 				timer.Stop(logicLoop)
-				--print("we're done, we either ran out of time or the wave ended")
-				botSpawn:Suicide()	
+				print("we're done, we either ran out of time or the wave ended")
+				botSpawn:Suicide()
+				numActiveBots = numActiveBots - 1
+				spyTerminated = true
+				print(numActiveBots)
 				return
 			end
-		end, 29) --one extra because of a pair of freak incidents where the spies lived forever
+		end, 27)
+		
+		--These motherfuckers keep living forever, this is the ultimate solution to that issue
+		--No ambiguity with iteration times, no constant checks, no clause they can slip through
+		--They. Will. FUCKING. DIE.
+		timer.Simple(14, function()
+			if botSpawn:IsAlive() == true and botSpawn.m_szNetname == "Spy (" .. owner.m_szNetname .. ")" and spyTerminated == false then
+				botSpawn:Suicide()
+				numActiveBots = numActiveBots - 1
+				print(numActiveBots)	
+			end
+			if numActiveBots < 0 then
+				numActiveBots = 0
+			end			
+		end)
 			
 end
 
