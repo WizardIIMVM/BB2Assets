@@ -87,7 +87,7 @@ population
 		T_TFGateBot_Heavy_Easy_Xenomorph
 		{
 			Class Heavy
-			Name	"Heavy Xenomorph"
+			Name	"Heavy Xenomorh"
 			MaxVisionRange	1200
 			//Item	"The Xeno Suit"
 			EventChangeAttributes
