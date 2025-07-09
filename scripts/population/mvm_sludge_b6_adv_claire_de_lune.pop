@@ -1036,7 +1036,7 @@ PrecacheGeneric     "materials/sprites/explosive_res.vmt"
 			{
 				Class Soldier
 			name "Bison Soldier"
-			skill expert
+			skill hard
 			WeaponRestrictions SecondaryOnly
 			Item "The Righteous Bison"
 			classicon 	soldier_bison_spammer
@@ -1053,8 +1053,8 @@ PrecacheGeneric     "materials/sprites/explosive_res.vmt"
 			Totalcount 3
 			maxactive 2
 			Spawncount 1
-            WaitBetweenSpawns 10
-			Waitbeforestarting 5
+            WaitBetweenSpawns 12
+			Waitbeforestarting 4
 			FirstSpawnOutput                                                                                                                                                            
 			{
 				Target boss_spawn_relay                                            
@@ -1083,7 +1083,7 @@ PrecacheGeneric     "materials/sprites/explosive_res.vmt"
 			Totalcount 3
 			maxactive 2
 			Spawncount 1
-            WaitBetweenSpawns 11
+            WaitBetweenSpawns 12
 			Waitbeforestarting 7
 			Tank
 			{
@@ -1770,11 +1770,15 @@ Waitbeforestarting 20
 	}
 	Wave
 	{
-		InitWaveOutput
-		{
-			Target bombpath_low_left_relay
-			Action Trigger
-		}
+		InitWaveOutPut
+             {
+            Target wave_start_relay
+            Action RunScriptCode
+            Param "
+            EntFire(`sentrynest2`, `Kill`)
+            EntFire(`bombpath_low_left_relay`, `Trigger`)
+            "
+            }
 		
 		StartWaveOutput
 		{
@@ -2576,6 +2580,7 @@ Tag antistuck
 Explanation    //Dispayed once the wave is initialized
 		{
 			Line "{green}An armada of Vaccinator blimps approaches..."
+                        Line "{green}...beware of the last blimp, which only takes damage from {red}melee {green}attacks!"
 		}
 
 		WaveSpawn
