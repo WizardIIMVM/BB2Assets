@@ -1,5 +1,6 @@
 //My name is Edwin. I made the Mimic
 //POST-LAUNCH changes, July Fourth
+//POST-LAUNCH changes 2, July Ninth
 #base robot_giant.pop
 #base robot_standard.pop
 #base robot_gatebot.pop
@@ -1253,7 +1254,7 @@ population
 		Waitforalldead firstimpression 
 		name w1DEMS
 			TotalCurrency	150
-			TotalCount	8
+			TotalCount	6
 			MaxActive	2
 			SpawnCount	2
 			Where spawnbot_g2s0_alt
@@ -1336,7 +1337,7 @@ CharacterAttributes
 			SpawnCount	1
 			Where spawnbot_g2s1_alt
 			WaitBeforeStarting	0
-			WaitBetweenSpawns	10
+			WaitBetweenSpawns	11.5
 			TFBot
 				{
 					Skill	Expert
@@ -1361,7 +1362,7 @@ CharacterAttributes
 			SpawnCount	1
 			Where spawnbot_g2s0_alt
 			WaitBeforeStarting	0
-			WaitBetweenSpawns	10
+			WaitBetweenSpawns	11.5
 			TFBot
 				{
 					Skill	Expert
@@ -1447,7 +1448,11 @@ CharacterAttributes
 			Target initB
 			Action Trigger
 		}
-		
+		Explanation    //Dispayed once the wave is initialized
+		{
+			Line "{blue}Stand-in Tanks{green} will start to appear!"
+                        Line "{green}The uber tank will be ubered until it grabs the bomb..."
+		}
 		WaveSpawn
 		{
 		name 21
@@ -2161,6 +2166,10 @@ CharacterAttributes
 			Target initA
 			Action Trigger
 		}
+Explanation    //Dispayed once the wave is initialized
+		{
+			Line "{blue}Gate Tanks{green} will start to appear!"
+		}
 		WaveSpawn
 		{
 		   Name 41
@@ -2537,7 +2546,10 @@ CharacterAttributes
 			Target initMainFixed
 			Action Trigger
 		}
-		
+		Explanation    //Dispayed once the wave is initialized
+		{
+			Line "{blue}Tanks with weapons{green} will start to appear!"
+		}
 		WaveSpawn
 		{
 			TotalCount 60
@@ -3136,6 +3148,10 @@ CharacterAttributes
                 EntFireByHandle(relay_ent, `Trigger`, ``, -1, relay_ent, relay_ent)
             "
         }
+                Explanation    //Dispayed once the wave is initialized
+		{
+			Line "{blue}A Concheror tank{green} will appear!"
+		}
 		WaveSpawn
 		{
 		    Name 61
@@ -3712,7 +3728,7 @@ CharacterAttributes
 		    Where spawnbot_g1s1a
 		    Where spawnbot_g2s0a
 		    Where spawnbot_g2s1a
-			WaitBeforeStarting 5
+			WaitBeforeStarting 15
 			TFBot
 			{
 			Template T_tindals_stand_in_But_with_added_stuff_thanks_tindal
