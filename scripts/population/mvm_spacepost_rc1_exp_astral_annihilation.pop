@@ -1238,7 +1238,7 @@ WaveSchedule
 			TotalCount 5
 			MaxActive  5
 			SpawnCount 1
-			TotalCurrency 50
+			TotalCurrency 25
 
 			WaitBeforeStarting 0
 			WaitBetweenSpawns  10
@@ -1247,6 +1247,29 @@ WaveSchedule
 			TFBot 
 			{ 
 			Template T_TFBot_Giant_Scout_Fast
+			Attributes AlwaysCrit
+			}
+		}
+		//  [$0]
+		WaveSpawn
+		{
+			Name "wave05a45"
+			Where spawnbot
+
+
+			TotalCount 5
+			MaxActive  5
+			SpawnCount 1
+			TotalCurrency 25
+
+			WaitBeforeStarting 10
+			WaitBetweenSpawns  10
+			WaitForAllSpawned     "wave05a2"
+
+			TFBot 
+			{ 
+			Template T_TFBot_Giant_Scout_Fast
+			Attributes AlwaysCrit
 			}
 		}		
 		//  [$0]
