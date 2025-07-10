@@ -1130,6 +1130,7 @@ population
 					Item	"The Warsworn Helmet"
 					Template	T_TFBot_Giant_Medic
 					ClassIcon	medic_pop_giant
+					Tag	bot_giant
 				}
 			}
 		}
