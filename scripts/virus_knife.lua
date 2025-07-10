@@ -14,6 +14,7 @@ local BOTS_ATTRIBUTES = {
 	["ignored by enemy sentries"] = 1,
 	["not solid to players"] = 1,
 	["max health additive bonus"] = -55,
+	["special item description"] = "IamASpy",
 }
 local BOTS_ATTRIBUTES_GIGA = {
 	-- ["not solid to players"] = 1, -- prevents bot from taking teleporter
@@ -29,6 +30,7 @@ local BOTS_ATTRIBUTES_GIGA = {
 	["add cloak on kill"] = 20,
 	["ignored by enemy sentries"] = 1,
 	["max health additive bonus"] = 175,
+	["special item description"] = "IamASpy",
 }
 local BOTS_ATTRIBUTES_CLONE_BASE = {
 	-- ["not solid to players"] = 1, -- prevents bot from taking teleporter
@@ -78,6 +80,8 @@ local PACK_ITEMS = {
 
 local numActiveBots = 0
 
+local botCheckCounter = 0
+
 function OnWaveInit()
 	inWave = false
 
@@ -85,6 +89,17 @@ function OnWaveInit()
 		bot:Suicide()
 		bot.m_iTeamNum = 1
 	end
+	
+	for _, player in pairs(ents.GetAllPlayers()) do
+		if player:IsRealPlayer() == false and player.m_iTeamNum == 2 and player:IsAlive() == true then
+			player:Suicide()
+			player.m_iTeamNum = 1		
+		end
+	end	
+	
+	timer.Simple(0.1, function()
+		numActiveBots = 0
+	end)
 
 	activeBuiltBots = {}
 end
@@ -290,7 +305,21 @@ function virusKnifeKill(damage, activator, caller)
 	end
 	
 	numActiveBots = numActiveBots + 1
+	botCheckCounter = botCheckCounter + 1
+	print(botCheckCounter)
 	print(numActiveBots)
+	
+	if botCheckCounter >= 9 then
+		botCheckCounter = 0
+		print("Scanning for leaking spies")
+		for _, player in pairs(ents.GetAllPlayers()) do
+			if player:IsRealPlayer() == false and player.m_iTeamNum == 2 and player:IsAlive() == true and player:GetAttributeValue("special item description", false) == "IamNOTaSpy" and player.m_iClass == 8 then
+				print("Found an invalid spy DIE")
+				botSpawn:Suicide()
+				botSpawn.m_iTeamNum = 1		
+			end
+		end			
+	end
 	
 	local gigaSpyValue = 1
 	
@@ -353,17 +382,19 @@ function virusKnifeKill(damage, activator, caller)
 				timer.Stop(logicLoop)
 				numActiveBots = numActiveBots - 1
 				spyTerminated = true
+				botSpawn.m_iTeamNum = 1
 				print(numActiveBots)				
 				print("we're done, we either died or aren't a spy")
 				return
 			end
 			
-			if (inWave == false or owner:IsValid() == false) and spyTerminated == false then
+			if owner:IsValid() == false and spyTerminated == false then
 				timer.Stop(logicLoop)
-				print("we're done, we either ran out of time or the wave ended")
+				print("we're done, our owner isn't valid")
 				botSpawn:Suicide()
 				numActiveBots = numActiveBots - 1
 				spyTerminated = true
+				botSpawn.m_iTeamNum = 1
 				print(numActiveBots)
 				return
 			end
@@ -373,9 +404,12 @@ function virusKnifeKill(damage, activator, caller)
 		--No ambiguity with iteration times, no constant checks, no clause they can slip through
 		--They. Will. FUCKING. DIE.
 		timer.Simple(14, function()
+			botSpawn:SetAttributeValue("special item description", "IamNOTaSpy")
 			if botSpawn:IsAlive() == true and botSpawn.m_szNetname == "Spy (" .. owner.m_szNetname .. ")" and spyTerminated == false then
 				botSpawn:Suicide()
 				numActiveBots = numActiveBots - 1
+				botSpawn.m_iTeamNum = 1
+				botSpawn:SetAttributeValue("special item description", nil)
 				print(numActiveBots)	
 			end
 			if numActiveBots < 0 then
