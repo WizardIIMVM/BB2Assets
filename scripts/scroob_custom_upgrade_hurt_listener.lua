@@ -1,3 +1,12 @@
+local BOT_SET_SKILL_EASY =
+	"activator.SetDifficulty(0);"
+local BOT_SET_SKILL_NORMAL =
+	"activator.SetDifficulty(1);"
+local BOT_SET_SKILL_HARD =
+	"activator.SetDifficulty(2);"
+local BOT_SET_SKILL_Expert =
+	"activator.SetDifficulty(3);"	
+
 AddEventCallback("player_hurt", function(eventTable)
 	--PrintTable(eventTable)
 	
@@ -195,6 +204,8 @@ function soldierEarrapeBannerActivateBrainrot(condition, caller, activator)
 			end
 			
 			player.m_nBotSkill = 0
+			player:RunScriptCode(BOT_SET_SKILL_EASY, player, player)
+			
 			player:SetAttributeValue("grenades3_resupply_denied", 1)
 			player:SetAttributeValue("damage penalty", (preBrainrotDamagePenalty - 0.25))
 			--print("Applied damage penalty of " .. (preBrainrotDamagePenalty - 0.25))
@@ -213,6 +224,22 @@ function soldierEarrapeBannerActivateBrainrot(condition, caller, activator)
 				if player.m_nBotSkill == 0 then
 					--print("Reset skill, it is now at " .. preBrainrotBotSkill)
 					player.m_nBotSkill = preBrainrotBotSkill
+					
+					--If only lua had switch statements
+					
+					if preBrainrotBotSkill == 1 then
+					
+						player:RunScriptCode(BOT_SET_SKILL_NORMAL, player, player)
+						
+					elseif preBrainrotBotSkill == 2 then
+					
+						player:RunScriptCode(BOT_SET_SKILL_HARD, player, player)
+						
+					elseif preBrainrotBotSkill == 3 then
+					
+						player:RunScriptCode(BOT_SET_SKILL_EXPERT, player, player)
+						
+					end
 				end
 				
 				--print("Reset damage penalty")
