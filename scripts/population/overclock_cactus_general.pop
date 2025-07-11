@@ -7,7 +7,7 @@ WaveSchedule
 	LuaScriptFile "scripts/lua_knockback_rage_cactus.lua"
 	LuaScriptFile "scripts/cowmangler_charge_shot_attribute.lua"
 	LuaScriptFile "scripts/small_shield_overclock.lua"
-	CustomUpgradesFile	"mvm_upgrades_cactus_rework_a2.txt" 
+	CustomUpgradesFile	"mvm_upgrades_cactus_overclocks_a3.txt" 
 
 	DisallowUpgrade	  //RPG
 	{
@@ -536,12 +536,12 @@ WaveSchedule
 		}
 		CandyCaneA
 		{
-			Name "Unstable Mod: Sugar Shock"
+			Name "Stable Mod: Sugar Shock"
 			Attribute "add cond on hit"
 			Cap 27
 			Increment 27
 			Cost 0
-			Description "+Applies Mad Milk on hit for 4 seconds -10 max health" 
+			Description "+Applies Mad Milk on hit for 4 seconds" 
 			Tier 1
 			SecondaryAttributes
 			{
@@ -560,11 +560,11 @@ WaveSchedule
 			Cap 5
 			Increment 5
 			Cost 0
-			Description "+On hit: speedboost for 5 seconds +25% blast resistance +20% damage bonus" 
+			Description "+On hit: speedboost for 5 seconds +25% blast resistance +25% damage bonus" 
 			Tier 1
 			SecondaryAttributes
 			{
-				"damage bonus" 0.2
+				"damage bonus" 0.25
 				"dmg taken from blast increased" -0.25
 			}
 			AllowedWeapons
@@ -1401,10 +1401,10 @@ WaveSchedule
 				//"bleeding duration" 3
 				"airblast_pushback_disabled" 1
 				"slow enemy on hit" 1
-				"flame_speed" 5400
-				"flame_drag" 4.75				
+//				"flame_speed" 5400
+//				"flame_drag" 4.75				
 			}
-			Description "+Ignite non-ignitable targets +100% chance to slow target +35% flamethrower range -airblast no longer pushes back robots" 
+			Description "+Ignite non-ignitable targets +100% chance to slow target -airblast no longer pushes back robots" 
 			Tier 1
             AllowedWeapons
 			{
@@ -1454,9 +1454,9 @@ WaveSchedule
 			Increment 1
 			SecondaryAttributes
 			{
-				"mult dmg vs tanks" 0.2
+				"mult dmg vs tanks" 0.25
 			}
-			Description "+20% extra damage to tanks +Attacks Pierce Resistances" 
+			Description "+25% extra damage to tanks +Attacks Pierce Resistances" 
 			Tier 1
             AllowedWeapons
 			{
@@ -3009,10 +3009,10 @@ WaveSchedule
 			{
 				"construction rate increased" 2
 				"mult dispenser rate" 2
-				"engy disposable sentries" 1
 				"mult teleporter recharge rate" -0.5
+				"engy sentry damage bonus" 0.35
 			}
-			Description "+1 disposable sentry gun +200% dispenser strength +200% dispenser strength +50% teleporter recharge" 
+			Description "+50% sentry Range +35% Sentry Damage +200% dispenser strength +200% dispenser strength +50% teleporter recharge" 
 			Tier 1
             Allowplayerclass Engineer
             AllowedWeapons
@@ -3586,8 +3586,8 @@ WaveSchedule
 		}
 		Sleeper_b
 		{
-			Name "Unstable Mod: Golden Cloud"
-			Attribute "radius sleeper"
+			Name "Unstable Mod: Golden Focus"
+			Attribute "rage on kill"
 			Cap 1
 			Increment 1
 			Cost 0
@@ -3596,10 +3596,9 @@ WaveSchedule
 				"mult bleeding dmg" -0.75
 				"Sniper charge per sec" -0.25
 				"mod soldier buff type" 6
-				"rage on kill" 35
 				"rage on assists" 15
 			}
-			Description "+Jarate splash headshot +Focus -75% explosive headshot damage -25% charge rate" 
+			Description "+Gain focus on kills -75% explosive headshot damage -25% charge rate" 
 			Tier 1
             Allowplayerclass Sniper
             AllowedWeapons
