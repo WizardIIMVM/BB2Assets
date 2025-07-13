@@ -25,18 +25,18 @@ WaveSchedule
 	PrecacheSound "weapons/the_bouncing_betty_shoot_low.wav" [$SIGSEGV]
 	PrecacheSound "weapons/the_bouncing_betty_shoot_crit.wav" [$SIGSEGV]
 	PrecacheSound "weapons/the_bouncing_betty_shoot_crit_low.wav" [$SIGSEGV]
-
-	DisallowUpgrade
+	
+	DisallowUpgrade	  
 	{
 		Upgrade "damage bonus"
 		SimilarToItem "Milk Stickybomb (Secondary)"
 	}
-	DisallowUpgrade
+	DisallowUpgrade	  
 	{
 		Upgrade "heal on kill"
 		SimilarToItem "Milk Stickybomb (Secondary)"
 	}
-
+	
 	CustomWeapon
 	{
 		"The Bouncing Betty (Primary)" // Thanks from Ian-hunter
@@ -495,7 +495,20 @@ WaveSchedule
 				Slot "Melee"
 			}
 		}
-
+		
+		IncreaseRangeDemoMelee
+		{
+			Name "+50% Melee Range"
+			Attribute "melee range multiplier"
+			Increment 0.5
+			Cap 2.5
+			Cost 150
+			AllowedWeapons
+			{
+				Slot "Melee"
+			}
+		}
+		
 		StickyMilkSlow
 		{
 			Name "Slow Milk 10 seconds per hit"
