@@ -18,13 +18,6 @@ WaveSchedule
 	PrecacheSound "#mentrillum/mvm/music/havoc_prognosis.wav"
 	PrecacheSound "#mentrillum/mvm/music/hard_boiled_heavies.wav"
 
-	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_combat_tank_chassis.mdl" [$SIGSEGV]
-	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_railgun.mdl" [$SIGSEGV]
-	PrecacheModel "models/bots/boss_bot/combat_tank/railgun_case.mdl" [$SIGSEGV]
-	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_rocket_dumbfire.mdl" [$SIGSEGV]
-	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_rocket_seeker.mdl" [$SIGSEGV]
-	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_rocket_pod.mdl" [$SIGSEGV]
-
 	Templates
 	{
 		T_TFBot_Scout_Trooper
@@ -446,13 +439,13 @@ WaveSchedule
 	ExtraTankPath
 	{
 		Name "rockettank_path"
-		Node "-2824 3296 24"
-		Node "-2344 3296 24"
-		Node "-2264 3272 24"
-		Node "-2224 3200 24"
-		Node "-2224 2688 24"
-		Node "-2176 2552 24"
-		Node "-2048 2440 24"
+		Node "-2825 3292 24"
+		Node "-2349 3292 24"
+		Node "-2265 3271 24"
+		Node "-2220 3200 24"
+		Node "-2220 2680 24"
+		Node "-2174 2551 24"
+		Node "-2041 2439 24"
 		Node "-1824 2368 24"
 		Node "-1664 2368 24"
 		Node "-1584 2336 24"
@@ -463,21 +456,44 @@ WaveSchedule
 		Node "-1536 1992 96"
 		Node "-1536 1936 96"
 		Node "-1536 1672 96"
-		Node "-1496 1504 96"
-		Node "-1408 1456 96"
-		Node "-1264 1440 96"
-		Node "-1056 1440 96"
-		Node "-832 1440 96"
-		Node "-568 1408 96"
-		Node "-256 1024 96"
-		Node "128 384 96"
+		Node "-1519 1471 96"
+		Node "-1403 1357 96"
+		Node "-1259 1341 96"
+		Node "-1051 1341 96"
+		Node "-810 1486 96"
+		Node "-740 1517 96"
+		Node "-691 1519 96"
+		Node "-621 1510 96"
+		Node "-584 1493 96"
+		Node "-549 1456 96"
+		Node "-503 1350 96"
+		Node "-474 1287 96"
+		Node "-453 1221 96"
+		Node "-422 1086 96"
+		Node "-369 965 96"
+		Node "-305 869 96"
+		Node "-220 831 96"
+		Node "-145 822 96"
+		Node "-93 821 96"
+		Node "-6 821 96"
+		Node "55 831 96"
+		Node "139 848 96"
+		Node "246 848 96"
+		Node "318 840 96"
+		Node "382 810 96"
+		Node "414 768 96"
+		Node "424 712 96"
+		Node "424 416 96"
+		Node "412 72 96"
 		Node "360 -416 96"
 		Node "360 -640 96"
-		Node "360 -1600 96"
+		Node "360 -1149 96"
+		Node "360 -1544 96"
 		Node "400 -1632 96"
 		Node "432 -1664 96"
 		Node "464 -1712 96"
 		Node "464 -1912 96"
+		Node "456 -1952 96"
 		Node "424 -1984 96"
 		Node "376 -2008 96"
 		Node "328 -2016 96"
@@ -487,67 +503,16 @@ WaveSchedule
 		Node "120 -2016 128"
 		Node "8 -2016 160"
 		Node "-232 -2024 160"
-		Node "-288 -2056 160"
-		Node "-320 -2096 160"
-		Node "-360 -2152 160"
-		Node "-360 -2248 160"
-		Node "-376 -2328 160"
-		Node "-432 -2368 160"
+		Node "-284 -2052 160"
+		Node "-316 -2095 160"
+		Node "-357 -2153 160"
+		Node "-360 -2249 160"
+		Node "-374 -2328 160"
+		Node "-436 -2368 160"
 		Node "-432 -2544 160"
 		Node "-496 -2616 160"
 		Node "-800 -2616 160"
 		Node "-1050 -2616 160"
-	}
-
-	ExtraTankPath
-	{
-		Name "railtank_path"
-		Node "-2824 3296 24"
-		Node "-2344 3296 24"
-		Node "-2264 3272 24"
-		Node "-2224 3200 24"
-		Node "-2224 2688 24"
-		Node "-2176 2552 24"
-		Node "-2048 2440 24"
-		Node "-1824 2368 24"
-		Node "-1664 2368 24"
-		Node "-1584 2336 24"
-		Node "-1552 2272 24"
-		Node "-1536 2192 24"
-		Node "-1536 2120 48"
-		Node "-1536 2056 72"
-		Node "-1536 1992 96"
-		Node "-1536 1936 96"
-		Node "-1536 1672 96"
-		Node "-1496 1504 96"
-		Node "-1408 1456 96"
-		Node "-1264 1440 96"
-		Node "-1056 1440 96"
-		Node "-832 1440 96"
-		Node "-568 1408 96"
-		Node "-256 1024 96"
-		Node "128 384 96"
-		Node "360 -416 96"
-		Node "360 -640 96"
-		Node "360 -1600 96"
-		Node "400 -1632 96"
-		Node "432 -1664 96"
-		Node "464 -1712 96"
-		Node "464 -1912 96"
-		Node "424 -1984 96"
-		Node "376 -2008 96"
-		Node "328 -2016 96"
-		Node "288 -2016 96"
-		Node "216 -2016 96"
-		Node "168 -2016 112"
-		Node "120 -2016 128"
-		Node "8 -2016 160"
-		Node "-232 -2024 160"
-		Node "-288 -2056 160"
-		Node "-320 -2096 160"
-		Node "-360 -2152 160"
-		Node "-800 -2152 160"
-		Node "-1050 -2152 160"
 	}
 
 	Mission
@@ -2062,9 +2027,7 @@ WaveSchedule
 					IncludeScript(`tankextensions_main`, getroottable())
 				}
 
-				EntityOutputs.AddOutput(Entities.FindByName(null, `rockettank_path_50`), `OnPass`, `!activator`, `SetSpeed`, `0.0`, 0.0, 1)
-
-				EntityOutputs.AddOutput(Entities.FindByName(null, `railtank_path_45`), `OnPass`, `!activator`, `SetSpeed`, `0.0`, 0.0, 1)
+				EntityOutputs.AddOutput(Entities.FindByName(null, `rockettank_path_73`), `OnPass`, `!activator`, `SetSpeed`, `0.0`, 0.0, 1)
 
 				if (!(`tankextensions/combattank` in getroottable()))
 				{
