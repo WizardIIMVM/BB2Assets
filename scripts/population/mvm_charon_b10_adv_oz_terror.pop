@@ -3,7 +3,7 @@
 
 // Credits:
 //	lite
-//		charon_homingprojectiles.nut (adapted from TankExtensions)
+//		homing_projectiles.nut (adapted from TankExtensions)
 //		indicator_circle_long.mdl
 //		various wave bar icons
 //	Seelpit
@@ -46,7 +46,6 @@
 #base robot_giant.pop
 #base robot_gatebot.pop
 
-// Play this mission on potato.tf servers for extra custom upgrades on non-meta weapons
 #base overclock_cactus_general.pop
 
 WaveSchedule
@@ -209,7 +208,7 @@ WaveSchedule
 			Class Soldier
 			Skill Expert
 			Name "Blunt Component"
-			ClassIcon soldier_escape_giant
+			ClassIcon soldier_escapeplan_lobo_giant
 			Health 4500
 			Item "The Escape Plan"
 			Item "The Jupiter Jumpers"
@@ -318,7 +317,7 @@ WaveSchedule
 		{
 			Class Medic
 			Name "Kritzkrieg Medic"
-			ClassIcon medic_kritz_quickfix_split
+			ClassIcon medic_kritz_quickfix_split_liteseel
 			Skill Normal
 			Attributes SpawnWithFullCharge
 			Item "The Kritzkrieg"
@@ -669,7 +668,7 @@ WaveSchedule
 		{
 			Class Demoman
 			Name "Lesser Carpet Bomber"
-			ClassIcon demo_clusterbomb_giant
+			ClassIcon demo_ironbomber_lite_giant
 			Health 3300
 			Skill Expert
 			WeaponRestrictions PrimaryOnly
@@ -720,7 +719,7 @@ WaveSchedule
 			Name "Bigheal Medic"
 			Skill Normal
 			Item "The Quick-Fix"
-			ClassIcon medic_kritz_quickfix_split
+			ClassIcon medic_kritz_quickfix_split_liteseel
 			ItemAttributes
 			{
 				ItemName "The Quick-Fix"
@@ -816,7 +815,7 @@ WaveSchedule
 		{
 			Class Soldier
 			Name "Bison Soldier"
-			ClassIcon soldier_bison
+			ClassIcon soldier_bison_daan
 			Skill Expert
 			MaxVisionRange 1200
 			Item "The Righteous Bison"
@@ -1014,8 +1013,7 @@ WaveSchedule
 				// we start the mission at gate B
 				EntFire( `initB`, `Trigger` )
 
-				// load mission script
-				IncludeScript( `charon_lobo.nut` )
+				IncludeScript( `oz_terror.nut` )
 
 				// bomb attributes
 				EntFire( `intel`, `SetReturnTime`, 35 )
@@ -1041,7 +1039,7 @@ WaveSchedule
 				SINS.ChangeIconByName( `heavy_fist_nys`, `heavy_gru` )
 				SINS.ChangeIconFlags( `heavy_gru`, 1 )
 
-				SINS.ChangeIconByName( `medic_kritz_quickfix_split`, `medic` )
+				SINS.ChangeIconByName( `medic_kritz_quickfix_split_liteseel`, `medic` )
 				SINS.ChangeIconByName( `scout_capper_saber_litenys`, `scout_batsaber_nys` )
 				SINS.ChangeIconByName( `soldier_buff_conch_mangler_giant`, `soldier_crit_giant` )
 			"
@@ -1077,7 +1075,7 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_QuickFix
-					ClassIcon medic_kritz_quickfix_split
+					ClassIcon medic_kritz_quickfix_split_liteseel
 				}
 			}
 		}
@@ -1102,7 +1100,7 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_QuickFix
-					ClassIcon medic_kritz_quickfix_split
+					ClassIcon medic_kritz_quickfix_split_liteseel
 				}
 			}
 		}
@@ -1329,7 +1327,7 @@ WaveSchedule
 					EntFire( `break1_relay`, `Kill` )
 
 					foreach ( player in LOBO.GetAllPlayers( { check_alive = false } ) )
-						player.SetScriptOverlayMaterial( `oz_terror_overlays/break1_announcement` )
+						player.SetScriptOverlayMaterial( `overlays/break1_announcement` )
 
 					LOBO.KillAllInvaderBots()
 
@@ -1338,7 +1336,7 @@ WaveSchedule
 					SINS.ChangeIconByName( `soldier_crit_giant`, `soldier_buff_burstfire_yoovy_giant` )
 					SINS.ChangeIconFlags( `soldier_buff_burstfire_yoovy_giant`, 1 | 8 )
 
-					SINS.ChangeIconByName( `medic_quickfix_seel2`, `medic_kritz_quickfix_split` )
+					SINS.ChangeIconByName( `medic_quickfix_seel2`, `medic_kritz_quickfix_split_liteseel` )
 					SINS.ChangeIconByName( `heavy_gru`, `heavy_gauntlet_nys` )
 				"
 			}
@@ -1376,7 +1374,7 @@ WaveSchedule
 				Action RunScriptCode
 				Param "
 					foreach ( player in LOBO.GetAllPlayers( { check_alive = false } ) )
-						player.SetScriptOverlayMaterial( `oz_terror_overlays/bomb_resets_40_sec` )
+						player.SetScriptOverlayMaterial( `overlays/bomb_resets_40_sec` )
 				"
 			}
 		}
@@ -1487,7 +1485,7 @@ WaveSchedule
 						text = `This sound is played on activation.`
 						follow_entindex = Entities.FindByName( null, `tranquility1_bp` ).entindex()
 						lifetime = 7
-						play_sound = `tranquility.wav`
+						play_sound = `misc/tranquility.wav`
 					})
 					EntFire( `tranquility1_ready_particles`, `Stop` )
 					EntFire( `tranquility2_ready_particles`, `Stop` )
@@ -1610,7 +1608,7 @@ WaveSchedule
 
 					LOBO.is_first_kotg_spawned = true
 
-					SINS.ChangeIconByName( `medic_kritz_quickfix_split`, `medic_kritz2` )
+					SINS.ChangeIconByName( `medic_kritz_quickfix_split_liteseel`, `medic_kritz_lite` )
 					SINS.ChangeIconByName( `soldier_buff_burstfire_yoovy_giant`, `soldier_giant` )
 					SINS.ChangeIconByName( `pyro_phlog_v2`, `pyro` )
 				"
@@ -1689,7 +1687,7 @@ WaveSchedule
 				Target BigNet
 				Action RunScriptCode
 				Param "
-					SINS.ChangeIconByName( `medic_kritz2`, `medic_quickfix_seel2` )
+					SINS.ChangeIconByName( `medic_kritz_lite`, `medic_quickfix_seel2` )
 					SINS.ChangeIconByName( `soldier_and_demo`, `soldier` )
 					SINS.ChangeIconByName( `soldier_giant`, `soldier_buff_burstfire_yoovy_giant` )
 				"
@@ -1969,7 +1967,7 @@ WaveSchedule
 					LOBO.gateb_captured = false
 
 					foreach ( player in LOBO.GetAllPlayers( { check_alive = false } ) )
-						player.SetScriptOverlayMaterial( `oz_terror_overlays/break2_announcement` )
+						player.SetScriptOverlayMaterial( `overlays/break2_announcement` )
 
 					LOBO.KillAllInvaderBots()
 
@@ -1997,7 +1995,7 @@ WaveSchedule
 				Action RunScriptCode
 				Param "
 					foreach ( player in LOBO.GetAllPlayers( { check_alive = false } ) )
-						player.SetScriptOverlayMaterial( `oz_terror_overlays/bomb_resets_45_sec` )
+						player.SetScriptOverlayMaterial( `overlays/bomb_resets_45_sec` )
 				"
 			}
 		}
@@ -2579,10 +2577,10 @@ WaveSchedule
 			Support 1
 			Squad
 			{
-				TFBot { ClassIcon demo_clusterbomb_hyper_lite }
+				TFBot { ClassIcon demo_ironbomber_hyper_lite }
 				TFBot { ClassIcon soldier_barrage_homing_hyper }
-				TFBot { ClassIcon soldier_bison_spammer_hyper_giant }
-				TFBot { ClassIcon soldier_spammer_giant }
+				TFBot { ClassIcon soldier_bison_spammer_hyper_lite_giant }
+				TFBot { ClassIcon soldier_spammer_hyper_lite }
 
 				// intermediate icons
 				TFBot { ClassIcon pyro_flare_atomic_v2 }
@@ -2593,7 +2591,7 @@ WaveSchedule
 				TFBot { ClassIcon scout_capper_lite }
 				TFBot { ClassIcon soldier_buff_burstfire_yoovy_giant }
 				TFBot { ClassIcon heavy_gauntlet_nys }
-				TFBot { ClassIcon medic_kritz2 }
+				TFBot { ClassIcon medic_kritz_lite }
 				TFBot { ClassIcon soldier_barrage_conch_atomic_giant }
 			}
 		}
