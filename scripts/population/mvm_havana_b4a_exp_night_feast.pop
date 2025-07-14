@@ -1935,7 +1935,7 @@ WaveSchedule // 事实上这里可以是任何内容
         }
         Explanation
         {
-            Line "{ecd452}>Combat tanks are here! They're weaponized but can't deploy bombs, and they'll patrolling around the map."
+            Line "{ecd452}>Combat tanks are here! They're weaponized but can't deploy bombs, and they'll be patrolling around the map."
         }
         InitWaveOutput
 		{
@@ -1946,7 +1946,7 @@ WaveSchedule // 事实上这里可以是任何内容
 				EntFire(`bombpath_choose_relay`, `Kill`)
 				EntFire(`bombpath_clearall_relay`, `Trigger`)
 				EntFire(`bombpath_2_relay`, `Trigger`) // 设置该回合路线
-                //ClientPrint(null,3,`\x08ecd452FF>Combat tanks are here! They're weaponized but can't deploy bombs, and they'll patrolling around the map.`) // 战斗坦克来了！不会部署炸弹，但搭载有强力的武器的它们会在地图上巡逻。
+                //ClientPrint(null,3,`\x08ecd452FF>Combat tanks are here! They're weaponized but can't deploy bombs, and they'll be patrolling around the map.`) // 战斗坦克来了！不会部署炸弹，但搭载有强力的武器的它们会在地图上巡逻。
                 IncludeScript(`tankextensions_main`, getroottable())
                 IncludeScript(`tankextensions/combattank`, getroottable())
                 IncludeScript(`tankextensions/combattank_weapons/minigun`, getroottable())
