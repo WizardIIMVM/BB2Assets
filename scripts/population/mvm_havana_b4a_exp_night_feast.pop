@@ -1935,7 +1935,7 @@ WaveSchedule // 事实上这里可以是任何内容
         }
         Explanation
         {
-            Line "{ecd452}>Combat tanks are here! They're weaponized but can't deploy bombs, and they'll patrolling around the map."
+            Line "{ecd452}>Combat tanks are here! They're weaponized but can't deploy bombs, and they'll be patrolling around the map."
         }
         InitWaveOutput
 		{
