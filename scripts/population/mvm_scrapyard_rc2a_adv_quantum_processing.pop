@@ -12,6 +12,15 @@ WaveSchedule
 	CanBotsAttackWhileInSpawnRoom no
 	Advanced 1
 
+	PrecacheModel "models/props_tumb/mvm/tank_shield.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/paintable_tank_v2/boss_tank.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/paintable_tank_v2/boss_tank_damage1.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/paintable_tank_v2/boss_tank_damage2.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/paintable_tank_v2/boss_tank_damage3.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/paintable_tank_v2/tank_track_l.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/paintable_tank_v2/tank_track_r.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/paintable_tank_v2/bomb_mechanism.mdl" [$SIGSEGV]
+
 	Mission
 	{
 		Objective DestroySentries
