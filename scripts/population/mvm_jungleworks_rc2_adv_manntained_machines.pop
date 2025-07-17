@@ -1215,7 +1215,7 @@ population
 				{
 					ClassIcon	soldier_bison_b
 					Health	3800
-					Name	"Wave 6 Giant Laser Soldier"
+					Name	"I was in an Overflow of Oil"
 					Class	Soldier
 					Skill	Expert
 					WeaponRestrictions	PrimaryOnly
@@ -1965,7 +1965,7 @@ population
 				{
 					ClassIcon	soldier_bison_b
 					Health	3800
-					Name	" Oil Wave 6 Laserwall"
+					Name	"I was in an Overflow of Oil"
 					Class	Soldier
 					Skill	Expert
 					WeaponRestrictions	PrimaryOnly
@@ -2033,7 +2033,7 @@ population
 				{
 					ClassIcon	soldier_bison_b
 					Health	3800
-					Name	"Wave 6 Laserwall"
+					Name	"I was in an Overflow of Oil"
 					Class	Soldier
 					Skill	Expert
 					WeaponRestrictions	PrimaryOnly
