@@ -2452,14 +2452,14 @@ population
 			MaxActive	4
 			SpawnCount	1
 			WaitBeforeStarting	8
-			WaitBetweenSpawns	7.25
+			WaitBetweenSpawns	5
 			Where	spawnbot_side
 			Support	1
 			TFBot
 			{
 				Template	T_TFBot_Pyro
 				Skill	Easy
-				//Attributes	"AlwaysCrit"
+				Attributes	"AlwaysCrit"
 				Attributes	"AlwaysFireWeapon"
 			}
 		}
