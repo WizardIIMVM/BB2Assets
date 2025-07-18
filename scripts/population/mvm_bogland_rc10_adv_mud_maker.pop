@@ -9,9 +9,10 @@ population
 	Advanced	1
 	AllowBotExtraSlots 1  
 	PrecacheModel                    models/bots/boss_bot/boss_blimp_main.mdl  
-    PrecacheModel                    models/bots/boss_bot/boss_blimp_main_damage1.mdl  
-    PrecacheModel                    models/bots/boss_bot/boss_blimp_main_damage2.mdl  
-    PrecacheModel                    models/bots/boss_bot/boss_blimp_main_damage3.mdl  
+    	PrecacheModel                    models/bots/boss_bot/boss_blimp_main_damage1.mdl  
+    	PrecacheModel                    models/bots/boss_bot/boss_blimp_main_damage2.mdl  
+    	PrecacheModel                    models/bots/boss_bot/boss_blimp_main_damage3.mdl
+	PrecacheModel "models/bots/sniper_boss/bot_sniper_boss.mdl"
 	ExtraTankPath   //Adds tank path to follow
 	{
 		Name "tank_path_sky_1" //name of the starting path node prefix. First tank node name would be name_1
