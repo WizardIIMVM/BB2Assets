@@ -44,6 +44,7 @@ jobs:
         run: |
             ssh-agent -a $SSH_AUTH_SOCK > /dev/null
             ssh-add - <<< "${{ secrets.DEPLOY_KEY }}"
+            ssh-add - <<< "${{ secrets.TOHRU_KEY_USA }}"
 
       - name: Create asset pack
         run: |
@@ -82,32 +83,15 @@ jobs:
         run: |
 
           cd tf/download
-          {
-            echo -e "${{ secrets.TOHRU_KEY_USA }}" > /tmp/deploy_key
-            chmod 600 /tmp/deploy_key
-
-            rsync -a -e "ssh -p 47422 -i /tmp/deploy_key -o StrictHostKeyChecking=no" --delete --update --exclude=".*" --exclude="*.bz2" --exclude="*.zip" . redho@pnj.thebel.net:~/tf2server/tf/bb2/
-
-            rm -rf /tmp/deploy_key
-          } &
-
-          {
-            echo -e "${{ secrets.TOHRU_KEY_EU }}" > /tmp/deploy_key_eu
-            chmod 600 /tmp/deploy_key_eu
-
-            rsync -a -e "ssh -p 59922 -i /tmp/deploy_key_eu -o StrictHostKeyChecking=no" --delete --update --exclude=".*" --exclude="*.bz2" --exclude="*.zip" . redho@eu2.thebel.net:~/tf2server/tf/bb2/
-
-            rm -rf /tmp/deploy_key_eu
-          } &
 
           mapfile -t servers < <(curl -s https://raw.githubusercontent.com/potato-tf/deploy/refs/heads/main/serverlist.json | jq -r '.servers[]')
           for i in "${servers[@]}"; do a=( $i );
           {
-            ssh -o StrictHostKeyChecking=no -p ${a[0]} ${a[1]} "touch /var/tf2server/tf/occupiedservers/wake; exit 0"
+            ssh -o StrictHostKeyChecking=no -p ${a[0]} ${a[1]} "touch ${a[2]}/tf2server/tf/occupiedservers/wake; exit 0"
 
-            rsync -a -e "ssh -p ${a[0]} -o StrictHostKeyChecking=no" --delete --update --exclude=".*" --exclude="*.bz2" . ${a[1]}:/var/tf2server/tf/bb2/
-            ssh -p ${a[0]} -o StrictHostKeyChecking=no ${a[1]} mkdir -p /var/www/html/gameassets/bb2
-            rsync -a -e "ssh -p ${a[0]} -o StrictHostKeyChecking=no" --delete --update --include="*/" --include="*.bz2" --exclude="*" . ${a[1]}:/var/www/html/gameassets/bb2/
+            rsync -a -e "ssh -p ${a[0]} -o StrictHostKeyChecking=no" --delete --update --exclude=".*" --exclude="*.bz2" . ${a[1]}:${a[2]}/tf2server/tf/bb2/
+            ssh -p ${a[0]} -o StrictHostKeyChecking=no ${a[1]} mkdir -p ${a[2]}/www/html/gameassets/bb2
+            rsync -a -e "ssh -p ${a[0]} -o StrictHostKeyChecking=no" --delete --update --include="*/" --include="*.bz2" --exclude="*" . ${a[1]}:${a[2]}/www/html/gameassets/bb2/
 
           } &
           done
