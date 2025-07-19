@@ -150,7 +150,45 @@ WaveSchedule
 		Objective DestroySentries
 		Where spawnbot
 		BeginAtWave	1
-		RunForThisManyWaves	6
+		RunForThisManyWaves	4
+		InitialCooldown	10
+		CooldownTime 30
+		DesiredCount 1
+		TFBot
+		{
+			Template	T_TFBot_SentryBuster
+			Tag bot_sentrybuster
+			Tag bot_giant
+			Attributes DisableDodge
+			Attributes IgnoreEnemies
+			Skill Hard
+		}
+	}
+	Mission
+	{
+		Objective DestroySentries
+		Where spawnbot_flank_behind_1
+		BeginAtWave	5
+		RunForThisManyWaves	1
+		InitialCooldown	10
+		CooldownTime 30
+		DesiredCount 1
+		TFBot
+		{
+			Template	T_TFBot_SentryBuster
+			Tag bot_sentrybuster
+			Tag bot_giant
+			Attributes DisableDodge
+			Attributes IgnoreEnemies
+			Skill Hard
+		}
+	}
+	Mission
+	{
+		Objective DestroySentries
+		Where spawnbot
+		BeginAtWave	6
+		RunForThisManyWaves	1
 		InitialCooldown	10
 		CooldownTime 30
 		DesiredCount 1
@@ -560,7 +598,7 @@ WaveSchedule
 			TFBot
 			{
 				Class Spy
-				ClassIcon sign_gate1
+				ClassIcon sign_gate1_v2
 			}
 		}
 		WaveSpawn
@@ -785,7 +823,7 @@ WaveSchedule
 			TFBot
 			{
 				Class Spy
-				ClassIcon sign_gate1
+				ClassIcon sign_gate1_v2
 			}
 		}
 		WaveSpawn
@@ -974,8 +1012,8 @@ WaveSchedule
 		}
 		Explanation [$SIGSEGV]
         {
-            Line "See those {7D4071}purple{reset} and {32CD32}green{reset} icons in support?"
-			Line "They represent {7D4071}Smog{reset} and {32CD32}Acid Rain{reset}."
+            Line "See that grey cloud icon with green droplets in support?"
+			Line "It represents that this wave will have {7D4071}Smog{reset} and {32CD32}Acid Rain{reset}."
 			Line "It should be self-explanatory, but {7D4071}Smog{FF69B4} will restrict your vision{reset}, while {32CD32}Acid Rain{green} will damage you, but provide a speed boost if you are outside and aren't underneath cover{reset}."
         }
 		WaveSpawn
@@ -984,16 +1022,7 @@ WaveSchedule
 			TFBot
 			{
 				Class Spy
-				ClassIcon sign_smog
-			}
-		}
-		WaveSpawn
-		{
-			Support	Limited
-			TFBot
-			{
-				Class Spy
-				ClassIcon sign_acidrain
+				ClassIcon sign_acidrain_v2
 			}
 		}
 		WaveSpawn
@@ -1003,6 +1032,27 @@ WaveSchedule
 			{			
 				Target	relay_enable_smog
 				Action	Trigger
+			}
+		}
+		WaveSpawn
+		{
+			Name	support4
+			TotalCount	12
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	10
+			WaitBetweenSpawnsAfterDeath	10
+			Where	spawnbot_flank
+			Support Limited
+			TFBot
+			{
+				Template	T_TFBot_Engineer_Sentry_Tele_Battle
+				TeleportWhere spawnbot
+				TeleportWhere spawnbot_flank
+				CharacterAttributes
+				{
+					"cannot pick up intelligence"	1
+				}
 			}
 		}
 		WaveSpawn
@@ -1170,7 +1220,7 @@ WaveSchedule
 			MaxActive	12
 			SpawnCount	1
 			WaitBetweenSpawns	3
-			Where	spawnbot
+			Where	spawnbot_flank
 			Support 1
 			TFBot
 			{
@@ -1212,28 +1262,18 @@ WaveSchedule
 			Support	Limited
 			RandomChoice
 			{
-				TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}
-				TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}
-				TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}
-				TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}
-				TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}
-				TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}
-				TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_placeholder_blind}
-			}
-		}
-		WaveSpawn
-		{
-			TotalCount	1
-			Support	Limited
-			RandomChoice
-			{
-				TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}
-				TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}
-				TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}
-				TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}
-				TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}
-				TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}
-				TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_placeholder_poison}
+				TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}
+				TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}
+				TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}
+				TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}
+				TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}
+				TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}
+				TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}
+				TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}
+				TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}
+				TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}
+				TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}TFBot{Class Spy ClassIcon sign_acidrain_v2}
+				TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_placeholder_poison}
 			}
 		}
 		WaveSpawn
@@ -1251,7 +1291,7 @@ WaveSchedule
 			TFBot
 			{
 				Class Spy
-				ClassIcon sign_gate1
+				ClassIcon sign_gate1_v2
 			}
 		}
 		WaveSpawn
@@ -1275,8 +1315,8 @@ WaveSchedule
 		WaveSpawn
 		{
 			Name	support5
-			TotalCurrency	200
-			TotalCount	200
+			TotalCurrency	100
+			TotalCount	100
 			MaxActive	5
 			SpawnCount	1
 			WaitBetweenSpawns	3
@@ -1377,15 +1417,6 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
-			WaitForAllDead	5a
-			DoneOutput
-			{			
-				Target	relay_disable_behind_flank_1
-				Action	Trigger
-			}
-		}
-		WaveSpawn
-		{
 			Name	5b
 			WaitForAllSpawned	5a
 			TotalCurrency	200
@@ -1445,6 +1476,59 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
+			Name	support5
+			WaitForAllSpawned 5b
+			TotalCurrency	100
+			TotalCount	100
+			MaxActive	5
+			SpawnCount	1
+			WaitBetweenSpawns	3
+			Where	spawnbot_flank_behind_1
+			Support 1
+			RandomChoice
+			{
+				TFBot
+				{
+					Template	Inky_Backburner_pyro
+					Attributes AlwaysFireWeapon
+					Tag bot_flanker
+				}
+				TFBot
+				{
+					Template	Inky_Backburner_pyro
+					Tag bot_flanker
+				}
+				TFBot
+				{
+					Template	Inky_Backburner_pyro
+					Tag bot_flanker
+				}
+				TFBot
+				{
+					Template	Inky_Backburner_pyro
+					Tag bot_flanker
+				}
+				TFBot
+				{
+					Template	Inky_Backburner_pyro
+					Attributes AlwaysFireWeapon
+				}
+				TFBot
+				{
+					Template	Inky_Backburner_pyro
+				}
+				TFBot
+				{
+					Template	Inky_Backburner_pyro
+				}
+				TFBot
+				{
+					Template	Inky_Backburner_pyro
+				}
+			}
+		}
+		WaveSpawn
+		{
 			WaitForAllDead	5b
 			DoneOutput
 			{			
@@ -1458,6 +1542,15 @@ WaveSchedule
 			DoneOutput
 			{			
 				Target	relay_disable_acid_rain
+				Action	Trigger
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllDead	5b
+			DoneOutput
+			{			
+				Target	relay_disable_behind_flank_1
 				Action	Trigger
 			}
 		}
@@ -1487,7 +1580,7 @@ WaveSchedule
 			TFBot
 			{
 				Class Spy
-				ClassIcon sign_gate1
+				ClassIcon sign_gate1_v2
 			}
 		}
 		WaveSpawn
@@ -1496,7 +1589,7 @@ WaveSchedule
 			TFBot
 			{
 				Class Spy
-				ClassIcon sign_gate2
+				ClassIcon sign_gate2_v2
 			}
 		}
 		WaveSpawn
@@ -1562,7 +1655,7 @@ WaveSchedule
 		WaveSpawn
 		{
 			Name	6a
-			TotalCurrency	200
+			TotalCurrency	100
 			TotalCount	1
 			MaxActive	1
 			SpawnCount	1
@@ -1617,6 +1710,36 @@ WaveSchedule
 			MaxActive	1
 			SpawnCount	1
 			WaitBeforeStarting	7
+			Where	spawnbot
+			FirstSpawnWarningSound "mvm/mvm_tele_deliver.wav"
+			Tank
+			{
+				Health	22222
+				Name	tankboss
+				Speed	75
+				Skin	1
+				StartingPathTrackNode	boss_path_flank
+				OnKilledOutput
+				{
+					Target	boss_dead_relay
+					Action	Trigger
+				}
+				OnBombDroppedOutput
+				{
+					Target	boss_deploy_relay
+					Action	Trigger
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name	6b1
+			WaitForAllSpawned	6b
+			TotalCurrency	100
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	12
 			Where	spawnbot
 			FirstSpawnWarningSound "mvm/mvm_tele_deliver.wav"
 			Tank
@@ -1704,7 +1827,7 @@ WaveSchedule
 			MaxActive	1
 			SpawnCount	1
 			WaitBeforeStarting	5
-			Where	spawnbot
+			Where	spawnbot_flank
 			FirstSpawnWarningSound "mvm/giant_heavy/giant_heavy_entrance.wav"
 			DoneWarningSound "vo/mvm/norm/heavy_mvm_autocappedintelligence03.mp3"
 			TFBot

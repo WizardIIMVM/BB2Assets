@@ -196,8 +196,8 @@ WaveSchedule
 		Where spawnbot
 		BeginAtWave	2
 		RunForThisManyWaves	1
-		InitialCooldown	30
-		CooldownTime 30
+		InitialCooldown	20
+		CooldownTime 20
 		DesiredCount 2
 		TFBot
 		{
@@ -438,10 +438,10 @@ WaveSchedule
 			Name	2c1
 			WaitForAllDead	2b1
 			TotalCurrency	200
-			TotalCount	24
+			TotalCount	32
 			MaxActive	13
 			SpawnCount	2
-			WaitBetweenSpawns	5
+			WaitBetweenSpawns	4
 			Where	spawnbot
 			Squad
 			{
@@ -486,7 +486,7 @@ WaveSchedule
 			TotalCount	50
 			MaxActive	12
 			SpawnCount	1
-			WaitBetweenSpawns	3
+			WaitBetweenSpawns	2
 			Where	spawnbot
 			Support 1
 			TFBot
@@ -537,8 +537,7 @@ WaveSchedule
 			Where	spawnbot
 			TFBot
 			{
-				Template	Inky_Melee_Scout
-				Name "Melee Scout"
+				Template	T_TFBot_Scout_Sandman_FastCharge
 			}
 		}
 		WaveSpawn
@@ -671,7 +670,7 @@ WaveSchedule
 			MaxActive	1
 			SpawnCount	1
 			WaitBeforeStarting	10
-			WaitBetweenSpawns	5
+			WaitBetweenSpawns	3
 			Where	spawnbot_flank
 			Support 1
 			TFBot
@@ -688,7 +687,7 @@ WaveSchedule
 			TotalCount	50
 			MaxActive	10
 			SpawnCount	1
-			WaitBetweenSpawns	5
+			WaitBetweenSpawns	3
 			Where	spawnbot
 			Support 1
 			TFBot
@@ -712,6 +711,30 @@ WaveSchedule
 			Target	wave_finished_relay
 			Action	Trigger
 		}
+		Explanation [$SIGSEGV]
+        {
+            Line "See that grey cloud icon in support?"
+			Line "It represents that this wave will have {7D4071}Smog{reset}."
+			Line "It should be self-explanatory, but {7D4071}Smog{FF69B4} will restrict your vision{reset}."
+        }
+		WaveSpawn
+		{
+			Support	Limited
+			TFBot
+			{
+				Class Spy
+				ClassIcon sign_smog_v2
+			}
+		}
+		WaveSpawn
+		{
+			FirstSpawnWarningSound "mvm/ambient_mp3/mvm_siren.mp3"
+			DoneOutput
+			{			
+				Target	relay_enable_smog
+				Action	Trigger
+			}
+		}
 		WaveSpawn
 		{
 			Name	4a
@@ -725,6 +748,7 @@ WaveSchedule
 				TFBot
 				{
 					Template	T_TFBot_Giant_Soldier_Crit
+					MaxVisionRange 1200
 					Tag bot_giant
 				}
 				TFBot
@@ -822,15 +846,16 @@ WaveSchedule
 			Name	4b
 			WaitForAllSpawned	4a
 			TotalCurrency	100
-			TotalCount	30
+			TotalCount	40
 			MaxActive	10
 			SpawnCount	1
 			WaitBeforeStarting	10
-			WaitBetweenSpawns	2
+			WaitBetweenSpawns	1.5
 			Where	spawnbot
 			TFBot
 			{
 				Template	Inky_Scout
+				MaxVisionRange 1200
 			}
 		}
 		WaveSpawn
@@ -859,7 +884,7 @@ WaveSchedule
 			MaxActive	12
 			SpawnCount	1
 			WaitBeforeStarting	10
-			WaitBetweenSpawns	3
+			WaitBetweenSpawns	1.2
 			Where	spawnbot
 			Support 1
 			TFBot
@@ -915,11 +940,40 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
+			TotalCount	1
+			Support	Limited
+			RandomChoice
+			{
+				TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}
+				TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}
+				TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}
+				TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}
+				TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}
+				TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}
+				TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}
+				TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}
+				TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}
+				TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}
+				TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}TFBot{Class Spy ClassIcon sign_smog_v2}
+				TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_placeholder_blind}
+			}
+		}
+		WaveSpawn
+		{
+			FirstSpawnWarningSound "mvm/ambient_mp3/mvm_siren.mp3"
+			DoneOutput
+			{			
+				Target	relay_enable_smog
+				Action	Trigger
+			}
+		}
+		WaveSpawn
+		{
 			Support	Limited
 			TFBot
 			{
 				Class Spy
-				ClassIcon sign_gate1
+				ClassIcon sign_gate1_v2
 			}
 		}
 		WaveSpawn
@@ -968,6 +1022,7 @@ WaveSchedule
 				TFBot
 				{
 					Template	T_TFBot_Demoman
+					MaxVisionRange 1200
 					Skill	Normal
 					Attributes	HoldFireUntilFullReload
 				}
@@ -1007,6 +1062,7 @@ WaveSchedule
 			TFBot
 			{
 				Template	T_TFBot_Giant_Soldier_SlowBarrage
+				MaxVisionRange 1200
 				Tag bot_flanker
 			}
 		}
@@ -1033,6 +1089,7 @@ WaveSchedule
 			TFBot
 			{
 				Template	Inky_Giant_Flare_Pyro
+				MaxVisionRange 1200
 			}
 		}
 		WaveSpawn
@@ -1040,11 +1097,11 @@ WaveSchedule
 			Name	5b
 			WaitForAllSpawned	5a
 			TotalCurrency	200
-			TotalCount	30
+			TotalCount	50
 			MaxActive	12
 			SpawnCount	1
 			WaitBeforeStarting	10
-			WaitBetweenSpawns	2
+			WaitBetweenSpawns	1.2
 			Where	spawnbot_flank
 			TFBot
 			{
@@ -1072,6 +1129,7 @@ WaveSchedule
 				TFBot
 				{
 					Template	T_TFBot_Giant_Soldier_SlowBarrage
+					MaxVisionRange 1200
 					Tag bot_giant
 				}
 				TFBot
@@ -1083,13 +1141,22 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
+			WaitForAllDead	5c
+			DoneOutput
+			{			
+				Target	relay_disable_smog
+				Action	Trigger
+			}
+		}
+		WaveSpawn
+		{
 			Name	support5
 			WaitForAllDead	5b
 			TotalCurrency	100
 			TotalCount	50
 			MaxActive	12
 			SpawnCount	4
-			WaitBeforeStarting	10
+			WaitBeforeStarting	3
 			WaitBetweenSpawns	3
 			Where	spawnbot_flank
 			Support 1
@@ -1110,7 +1177,7 @@ WaveSchedule
 		}
 		InitWaveOutput
 		{
-			Target relay_enable_behind_flank_1_light
+			Target relay_enable_behind_flanks_lights_1_3
 			Action Trigger
 		}
 		DoneOutput
@@ -1124,7 +1191,16 @@ WaveSchedule
 			TFBot
 			{
 				Class Spy
-				ClassIcon sign_gate1
+				ClassIcon sign_gate1_v2
+			}
+		}
+		WaveSpawn
+		{
+			Support	Limited
+			TFBot
+			{
+				Class Spy
+				ClassIcon sign_gate3_v2
 			}
 		}
 		WaveSpawn
@@ -1145,11 +1221,11 @@ WaveSchedule
 		{
 			Name	6a2
 			TotalCurrency	300
-			TotalCount	4
+			TotalCount	6
 			MaxActive	4
 			SpawnCount	2
 			WaitBeforeStarting	5
-			WaitBetweenSpawns	35
+			WaitBetweenSpawns	25
 			Where	spawnbot
 			Squad
 			{
@@ -1170,14 +1246,24 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
-			Name	6a2
+			WaitBeforeStarting	17
+			DoneOutput
+			{			
+				Target	relay_enable_behind_flank_3
+				Action	Trigger
+			}
+		}
+		WaveSpawn
+		{
+			Name	6a3
 			TotalCurrency	200
 			TotalCount	2
 			MaxActive	2
 			SpawnCount	1
 			WaitBeforeStarting	20
-			WaitBetweenSpawns	30
-			Where	spawnbot_flank
+			WaitBetweenSpawns	20
+			Where	spawnbot_flank_behind_3
+			FirstSpawnWarningSound "mvm/mvm_tele_deliver.wav"
 			TFBot
 			{
 				Template	Inky_Giant_Healflector_Heavy
@@ -1198,6 +1284,15 @@ WaveSchedule
 			{
 				Class Pyro
 				Skill Easy
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllDead	6a3
+			DoneOutput
+			{			
+				Target	relay_disable_behind_flank_3
+				Action	Trigger
 			}
 		}
 		WaveSpawn
@@ -1269,6 +1364,15 @@ WaveSchedule
 			{
 				Template	Inky_Giant_Healflector_Heavy
 				Tag bot_giant
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllDead	6b
+			DoneOutput
+			{			
+				Target	relay_disable_behind_flank_1
+				Action	Trigger
 			}
 		}
 	}
