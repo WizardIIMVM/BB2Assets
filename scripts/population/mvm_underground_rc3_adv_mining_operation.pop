@@ -2452,7 +2452,7 @@ population
 			MaxActive	4
 			SpawnCount	1
 			WaitBeforeStarting	8
-			WaitBetweenSpawns	5
+			WaitBetweenSpawns	7.5
 			Where	spawnbot_side
 			Support	1
 			TFBot
