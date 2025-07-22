@@ -1234,7 +1234,7 @@ population
 		{
     		Target "gamerules"
     		Action "RunScriptCode"
-    		Param "ClientPrint(null,3,`\x07F1C232Red Headquarters \x078FCE00: Watch out and be prepared. The \x07FF3F3FLeader\x078FCE00 of this offensive is coming soon.\x07FF3F3F His Right Hand\x078FCE00 is with him.`)"
+    		Param "ClientPrint(null,3,`\x07F1C232Red Headquarters \x078FCE00: Watch out and be prepared. The \x0799CCFFLeader\x078FCE00 of this offensive is coming soon.\x0799CCFF His Right Hand\x078FCE00 is with him.`)"
 		}
 		DoneOutput
 		{
@@ -1728,7 +1728,7 @@ population
     		Target "gamerules"
     		Action "RunScriptCode"
     		Param "
-			ClientPrint(null,3,`\x07F1C232Red Headquarters \x078FCE00: \x07FF3F3FALERT! \x07FF3F3 Field Marshal Mechanus\x078FCE00 and his \x07FF3F3FRight Hand Deadlock\x078FCE00 are here. \x078FCE00Deadlock is known for suprising his enemys. \x07FF3F3 SO WATCH OUT!`)
+			ClientPrint(null,3,`\x07F1C232Red Headquarters \x078FCE00: \x07F1C232ALERT! \x0799CCFFField Marshal Mechanus\x078FCE00 and his \x0799CCFFRight Hand Deadlock\x078FCE00 are here. \x0799CCFFDeadlock\x078FCE00 is known for suprising his enemys. \x07F1C232 SO WATCH OUT!`)
 			IncludeScript (`buddhamode.nut`,getroottable())
 			"
 		}
@@ -1891,7 +1891,7 @@ population
 				}
 				Message	
 				{
-					Name	"{red}Field Marshal Mechanus has arrived!"
+					Name	"{blue}Field Marshal Mechanus has arrived!"
 					Delay	0.1
 					Repeats	1
 					Cooldown	3
@@ -1899,7 +1899,7 @@ population
 				}
                 Message	
 				{
-					Name	"{red}Field Marshal Mechanus {FFFFFF}has used their {9BBF4D}RECALL{FFFFFF} Power Up Canteen!"
+					Name	"{blue}Field Marshal Mechanus {FFFFFF}has used their {9BBF4D}RECALL{FFFFFF} Power Up Canteen!"
 					Delay	1.75
 					Repeats	1
 					IfHealthBelow	25000
@@ -2051,7 +2051,7 @@ population
 				}
 				Message	
 				{
-					Name	"{red}Deadlock has spawned behind you!"
+					Name	"{blue}Deadlock has spawned behind you!"
 					Delay	0.1
 					Repeats	1
 					Cooldown	3
@@ -2059,7 +2059,7 @@ population
 				}
                 Message	
 				{
-					Name	"{red}Deadlock {FFFFFF}has used their {9BBF4D}RECALL{FFFFFF} Power Up Canteen!"
+					Name	"{blue}Deadlock {FFFFFF}has used their {9BBF4D}RECALL{FFFFFF} Power Up Canteen!"
 					Delay	0.875
 					Repeats	1
 					IfHealthBelow	12000
