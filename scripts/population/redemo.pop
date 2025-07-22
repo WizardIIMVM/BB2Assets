@@ -184,6 +184,7 @@ WaveSchedule
 	{
 		ItemName "The Ullapool Caber"
 		"regenerate stickbomb" 1
+		"self dmg push force decreased" 0
 	}
 	//ItemAttributes  
 	//{
