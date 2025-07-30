@@ -8790,6 +8790,14 @@ WaveSchedule
                 Class Scout
             }
         }
+        WaveSpawn // Dummy for icon precache
+        {
+            Support 1
+            TFBot
+            {
+                ClassIcon blueside_indicator
+            }
+        }
     }
     // Wave // Wave #?@= Final Boss Time Wave 7
     // // --This is about to take a while but I def want the boss to be a quickie.
