@@ -142,6 +142,7 @@ WaveSchedule
             "medigun particle"              passtime_beam
             "medigun particle enemy"        ~bombonomicon_spell_trail
             "uber duration bonus"           -2
+			"cannot taunt"                  1
             "special item description"      "Become a medic of death by dealing damage with your medigun!"
             "special item description 2"    "Dealing damage will fill up your thresholds which when reached, will grant you buffs/Super Uber!"
             "special item description 3"    "BUT! Don't forget your duties as a medic! Be decisive between damaging and healing."
@@ -880,6 +881,18 @@ WaveSchedule
                 targetname      redteam
                 teamnum         2
             }
+			OnSpawnOutput
+			{
+				Target powerup_kill
+				Action Enable
+				Delay 0.5
+			}
+			logic_timer
+			{
+				targetname "powerup_kill"
+				RefireTime 0.1
+				"OnTimer" "item_powerup_rune,Kill,,0,-1"
+			}
         }
 
         // mechanics///////////////////////////////////////////////////////////////////////
@@ -5498,7 +5511,7 @@ WaveSchedule
             {
                 Health                      28000
                 ClassIcon                   tank_combine_harvester
-                Speed                       95
+                Speed                       90
                 Name                        tankboss_harvester
                 Skin                        2
                 StartingPathTrackNode       tank_start_harvester
@@ -5519,11 +5532,11 @@ WaveSchedule
         {
             Name                    NonFollowers
             WaitForAllDead          2a
-            TotalCount              6
-            MaxActive               6
+            TotalCount              4
+            MaxActive               4
             SpawnCount              2
             WaitBetweenSpawns       18
-            WaitBeforeStarting      15
+            WaitBeforeStarting      20
             TotalCurrency           50
             Where                   spawnbot_left
 
