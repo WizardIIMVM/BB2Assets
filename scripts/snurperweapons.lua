@@ -433,7 +433,7 @@ function brokenAttack(damage, activator)
     activator.damageMeter = activator.damageMeter + damage
 
     function OnGameTick()
-        if activator:InCond(57) then
+        if activator:InCond(57) and activator:GetConditionProvider(57) == activator then
             -- print("ubered. Not Getting Points")
             activator.damageMeter = 0
         end
