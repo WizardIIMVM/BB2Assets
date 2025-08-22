@@ -142,7 +142,6 @@ WaveSchedule
             "medigun particle"              passtime_beam
             "medigun particle enemy"        ~bombonomicon_spell_trail
             "uber duration bonus"           -2
-			"cannot taunt"                  1
             "special item description"      "Become a medic of death by dealing damage with your medigun!"
             "special item description 2"    "Dealing damage will fill up your thresholds which when reached, will grant you buffs/Super Uber!"
             "special item description 3"    "BUT! Don't forget your duties as a medic! Be decisive between damaging and healing."

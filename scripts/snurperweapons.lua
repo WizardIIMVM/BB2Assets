@@ -429,10 +429,11 @@ function setVariablesMedic(_, activator)
 end
 
 function brokenAttack(damage, activator)
+	local medigun = activator:GetPlayerItemBySlot(LOADOUT_POSITION_SECONDARY)
     activator.damageMeter = activator.damageMeter + damage
 
     function OnGameTick()
-        if  activator:InCond(57) then
+        if activator:InCond(57) then
             -- print("ubered. Not Getting Points")
             activator.damageMeter = 0
         end
@@ -446,10 +447,11 @@ function brokenAttack(damage, activator)
         activator.textDescriptor:AddOutput("message "..tostring(activator.damageMeter).."/200 [No Passives]")
         activator.textDescriptor:AcceptInput("Display", _,activator)
 
-        activator:SetAttributeValue("hidden maxhealth non buffed", nil)
-        activator:SetAttributeValue("mark for death", nil)
-        activator:SetAttributeValue("effect cond override", nil)
-        activator:SetAttributeValue("Set DamageType Ignite", nil)
+
+        medigun:SetAttributeValue("hidden maxhealth non buffed", nil)
+        medigun:SetAttributeValue("mark for death", nil)
+        medigun:SetAttributeValue("effect cond override", nil)
+        medigun:SetAttributeValue("Set DamageType Ignite", nil)
         activator:RemoveCond(32)
         activator:RemoveCond(46)
 
@@ -467,7 +469,7 @@ function brokenAttack(damage, activator)
         activator.textDescriptor:AddOutput("color 0 128 0")
         activator.textDescriptor:AcceptInput("Display", _,activator)
 
-        activator:SetAttributeValue("hidden maxhealth non buffed", 25)
+        medigun:SetAttributeValue("hidden maxhealth non buffed", 25)
         activator:AddCond(32, -1)
 
         activator.powerTier = 1
@@ -480,10 +482,10 @@ function brokenAttack(damage, activator)
         activator.textDescriptor:AddOutput("color 255 255 0")
         activator.textDescriptor:AcceptInput("Display", _,activator)
 
-        activator:SetAttributeValue("hidden maxhealth non buffed", 50)
+        medigun:SetAttributeValue("hidden maxhealth non buffed", 50)
         activator:AddCond(32, -1)
         activator:AddCond(46, -1)
-        activator:SetAttributeValue("mark for death", 1)
+        medigun:SetAttributeValue("mark for death", 1)
 
         activator.powerTier = 2
     elseif activator.damageMeter >= 2000 then
@@ -495,8 +497,8 @@ function brokenAttack(damage, activator)
         activator.textDescriptor:AddOutput("color 255 0 0")
         activator.textDescriptor:AcceptInput("Display", _,activator)
         activator.Uber = 0
-        activator:SetAttributeValue("effect cond override", 2873)
-        activator:SetAttributeValue("Set DamageType Ignite", 3)
+        medigun:SetAttributeValue("effect cond override", 8505)
+        medigun:SetAttributeValue("Set DamageType Ignite", 3)
 
         -- local UberEvent = AddEventCallback("player_chargedeployed", function(eventTable)
         --     -- PrintTable(eventTable)
